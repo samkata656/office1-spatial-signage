@@ -243,8 +243,8 @@ input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;bac
 .feat.paused .tab.on .bar{animation-play-state:paused}
 @keyframes fill{to{width:100%}}
 .viewer{position:relative;border-radius:24px;overflow:hidden;border:1px solid var(--line);aspect-ratio:1440/820;background:#000}
-.viewer img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity .8s var(--ease),transform 1.6s var(--ease)}
-.viewer img.on{opacity:1;transform:none}
+.viewer img,.viewer video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity .8s var(--ease),transform 1.6s var(--ease)}
+.viewer img.on,.viewer video.on{opacity:1;transform:none}
 .viewer .hud{position:absolute;left:0;right:0;bottom:0;padding:60px 28px 24px;background:linear-gradient(transparent,rgba(0,10,20,.88));display:flex;justify-content:space-between;align-items:end;gap:20px}
 .viewer .hud h4{font-size:clamp(20px,2.4vw,30px);letter-spacing:-.02em;line-height:1.15}
 .viewer .hud .k{font-family:var(--mono);font-size:12px;color:var(--yellow);letter-spacing:.12em;margin-bottom:6px}
@@ -695,7 +695,7 @@ footer{background:#000a14;border-top:1px solid var(--line);padding:56px 0 36px;f
       <div class="rv" data-d="1">
         <div class="viewer" id="viewer">
           <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
-          <img class="on" src="assets/f-3d-plate.jpg" alt="3D плоча в Samsung Spatial Signage" loading="lazy" width="1440" height="850">
+          <video class="on" src="assets/v-3d-layers.mp4" poster="assets/v-3d-layers-poster.jpg" muted loop playsinline preload="metadata" width="720" height="416" aria-label="3D плоча в Samsung Spatial Signage – анимация на слоевете"></video>
           <img src="assets/f-4k.jpg" alt="4K съдържание в модна витрина" loading="lazy" width="1440" height="800">
           <img src="assets/f-ultrathin.jpg" alt="52 мм UltraThin дизайн в спортен магазин" loading="lazy" width="1440" height="800">
           <img src="assets/f-antiglare.jpg" alt="Сравнение с и без anti-glare" loading="lazy" width="1440" height="800">
@@ -1142,7 +1142,7 @@ initSeg($('#cmpSeg'), b => {
 });
 
 /* ---------- features tabs (auto-advance) ---------- */
-const feat = $('#feat'), tabs = $$('.tab', feat), vimgs = $$('#viewer img');
+const feat = $('#feat'), tabs = $$('.tab', feat), vimgs = $$('#viewer img, #viewer video');
 const hud = ['Съдържанието оживява в пространство зад стъклото', 'Детайлна 4K картина от всяко разстояние', 'Монтаж като стандартен дисплей – само 52 мм', 'Ясна картина при всяко осветление', 'Всички екрани, всички обекти – от един екран', 'Дисплеят става част от смарт обекта'];
 let fi = 0, ftimer, fvisible = false;
 const DUR = 7000;
@@ -1150,7 +1150,10 @@ feat.style.setProperty('--dur', DUR + 'ms');
 const showFeat = (i, user) => {
   fi = i;
   tabs.forEach((t, j) => { t.classList.toggle('on', j === i); t.setAttribute('aria-selected', j === i); });
-  vimgs.forEach((im, j) => im.classList.toggle('on', j === i));
+  vimgs.forEach((im, j) => {
+    im.classList.toggle('on', j === i);
+    if (im.tagName === 'VIDEO') { if (j === i && fvisible && !reduce) { im.currentTime = 0; im.play().catch(() => {}); } else im.pause(); }
+  });
   $('#hudK').textContent = `0${i + 1} / 06`; $('#hudT').textContent = hud[i];
   // restart bar animation
   const bar = $('.bar', tabs[i]); bar.style.animation = 'none'; bar.offsetWidth; bar.style.animation = '';
@@ -1161,7 +1164,7 @@ const showFeat = (i, user) => {
 tabs.forEach((t, i) => t.addEventListener('click', () => showFeat(i, true)));
 feat.addEventListener('pointerenter', () => { if (fine) { feat.classList.add('paused'); clearTimeout(ftimer); } });
 feat.addEventListener('pointerleave', () => { if (fine) { feat.classList.remove('paused'); showFeat(fi); } });
-new IntersectionObserver(([e]) => { fvisible = e.isIntersecting; if (fvisible) showFeat(fi); else clearTimeout(ftimer); }, { threshold: .3 }).observe(feat);
+new IntersectionObserver(([e]) => { fvisible = e.isIntersecting; if (fvisible) showFeat(fi); else { clearTimeout(ftimer); $$('#viewer video').forEach(v => v.pause()); } }, { threshold: .3 }).observe(feat);
 
 /* ---------- use cases ---------- */
 const check = '<svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>';
