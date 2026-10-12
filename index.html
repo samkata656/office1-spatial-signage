@@ -6,23 +6,24 @@
 <title>Samsung Spatial Signage | Office 1 Business</title>
 <meta name="description" content="Samsung Spatial Signage SMHX-P – 85-инчов 3D дисплей без очила за ритейл, HoReCa и шоуруми. Доставка, монтаж и поддръжка от Office 1.">
 <meta property="og:title" content="Samsung Spatial Signage SMHX-P | Office 1 Business">
-<meta property="og:description" content="Рекламата, която излиза от екрана. 85&quot; 4K 3D дисплей без очила – от Office 1.">
+<meta property="og:description" content="Витрина с истинска дълбочина. 85&quot; 4K 3D дисплей без очила – от Office 1.">
 <meta property="og:image" content="assets/f-retail-window.jpg">
 <meta name="theme-color" content="#00305c">
 <link rel="icon" href="assets/office1-logo.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap&subset=cyrillic" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy-950:#000f1f; --navy-900:#001a33; --navy:#00305c; --blue:#095189; --blue-hi:#1f82d6; --cyan:#5fd0ff;
-  --yellow:#fcc82c; --yellow-hi:#ffd95e; --red:#e81515;
+  --navy-950:#000f1f; --navy-900:#001a33; --navy:#00305c; --blue:#095189; --blue-hi:#1f82d6; --cyan:#84afd5;
+  --yellow:#fecc28; --yellow-hi:#e5b824; --yellow-soft:#fff0be; --red:#e81515;
   --ink:#141414; --grey:#767676; --paper:#f3f3f3; --white:#fff;
   --text:#e7eef7; --muted:#9db2c9; --line:rgba(159,196,235,.16);
   --card:rgba(9,81,137,.14); --card-hi:rgba(31,130,214,.22);
   --radius:20px; --max:1200px;
-  --font:'Manrope',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
-  --mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+  /* Office 1 uses Cormac (licensed); Fira Sans is the closest free match. Swap in 'Cormac' here if self-hosted with a license. */
+  --font:'Fira Sans',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+  --mono:'Fira Code',ui-monospace,Menlo,Consolas,monospace;
   --ease:cubic-bezier(.2,.8,.2,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -58,8 +59,8 @@ header.scrolled{background:rgba(0,15,31,.72);backdrop-filter:blur(14px) saturate
 .phone b{color:#fff;font-weight:600}
 .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:700;font-size:15px;border:0;cursor:pointer;position:relative;overflow:hidden;transition:transform .25s var(--ease),box-shadow .25s,background .25s;white-space:nowrap}
 .btn:hover{transform:translateY(-2px)}
-.btn-y{background:var(--yellow);color:var(--navy-900);box-shadow:0 8px 30px rgba(252,200,44,.25)}
-.btn-y:hover{background:var(--yellow-hi);box-shadow:0 12px 40px rgba(252,200,44,.4)}
+.btn-y{background:var(--yellow);color:var(--navy-900);box-shadow:0 8px 30px rgba(254,204,40,.25)}
+.btn-y:hover{background:var(--yellow-hi);box-shadow:0 12px 40px rgba(254,204,40,.4)}
 .btn-y::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s}
 .btn-y:hover::after{transform:translateX(120%)}
 .btn-ghost{background:rgba(255,255,255,.06);color:#fff;border:1px solid var(--line)}
@@ -73,16 +74,16 @@ header.scrolled{background:rgba(0,15,31,.72);backdrop-filter:blur(14px) saturate
   background:radial-gradient(1200px 600px at 75% 40%,rgba(9,81,137,.55),transparent 60%),radial-gradient(800px 500px at 10% 90%,rgba(0,48,92,.8),transparent 70%),var(--navy-950)}
 #hero canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0}
 .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
-.kicker{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--yellow);padding:7px 14px;border:1px solid rgba(252,200,44,.35);border-radius:999px;background:rgba(252,200,44,.06);margin-bottom:26px}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--yellow);padding:7px 14px;border:1px solid rgba(254,204,40,.35);border-radius:999px;background:rgba(254,204,40,.06);margin-bottom:26px}
 .kicker i{width:8px;height:8px;border-radius:50%;background:var(--yellow);box-shadow:0 0 12px var(--yellow);animation:pulse 1.8s infinite}
 @keyframes pulse{50%{opacity:.35}}
-h1{font-size:clamp(40px,6.2vw,80px);line-height:1.02;letter-spacing:-.035em;font-weight:800}
+h1{font-size:clamp(40px,6.2vw,80px);line-height:1.02;letter-spacing:-.02em;font-weight:900}
 h1 .line{display:block;overflow:hidden;padding-bottom:.06em}
 h1 .line span{display:inline-block;transform:translateY(110%);animation:rise .9s var(--ease) forwards}
 h1 .line:nth-child(2) span{animation-delay:.12s}
 h1 .line:nth-child(3) span{animation-delay:.24s}
 @keyframes rise{to{transform:none}}
-.grad{background:linear-gradient(95deg,var(--yellow) 0%,#fff 45%,var(--cyan) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% 100%;animation:shine 6s linear infinite}
+.grad{background:linear-gradient(95deg,var(--yellow) 0%,var(--yellow-soft) 45%,var(--yellow) 90%);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% 100%;animation:shine 6s linear infinite}
 @keyframes shine{to{background-position:-200% 0}}
 .lead{font-size:clamp(16px,1.6vw,19px);color:var(--muted);max-width:540px;margin:26px 0 34px}
 .lead b{color:#fff;font-weight:600}
@@ -95,12 +96,12 @@ h1 .line:nth-child(3) span{animation-delay:.24s}
 .stage{position:relative;perspective:1400px;height:min(78vh,680px);display:grid;place-items:center}
 .stage-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .5s var(--ease)}
 .stage-img{position:absolute;inset:0;margin:auto;height:100%;width:auto;max-width:none;left:50%;transform:translateX(-50%) translateZ(0);filter:drop-shadow(0 40px 60px rgba(0,0,0,.6))}
-.stage-halo{position:absolute;left:50%;top:50%;width:70%;aspect-ratio:1;transform:translate(-50%,-50%) translateZ(-80px);border-radius:50%;background:radial-gradient(circle,rgba(31,130,214,.55),rgba(252,200,44,.08) 55%,transparent 70%);filter:blur(10px);animation:breathe 6s ease-in-out infinite}
+.stage-halo{position:absolute;left:50%;top:50%;width:70%;aspect-ratio:1;transform:translate(-50%,-50%) translateZ(-80px);border-radius:50%;background:radial-gradient(circle,rgba(31,130,214,.55),rgba(254,204,40,.08) 55%,transparent 70%);filter:blur(10px);animation:breathe 6s ease-in-out infinite}
 @keyframes breathe{50%{transform:translate(-50%,-50%) translateZ(-80px) scale(1.12);opacity:.8}}
 .scan{position:absolute;left:31%;right:31%;top:10%;height:80%;overflow:hidden;transform:translateZ(2px);pointer-events:none;mix-blend-mode:screen}
-.scan::before{content:"";position:absolute;left:0;right:0;height:22%;background:linear-gradient(180deg,transparent,rgba(95,208,255,.22),transparent);animation:scan 4.5s linear infinite}
+.scan::before{content:"";position:absolute;left:0;right:0;height:22%;background:linear-gradient(180deg,transparent,rgba(132,175,213,.22),transparent);animation:scan 4.5s linear infinite}
 @keyframes scan{from{top:-25%}to{top:105%}}
-.chip{position:absolute;font-family:var(--mono);font-size:12px;padding:10px 14px;border-radius:14px;background:rgba(0,26,51,.72);border:1px solid rgba(95,208,255,.3);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);white-space:nowrap;box-shadow:0 10px 30px rgba(0,0,0,.35);animation:float 6s ease-in-out infinite}
+.chip{position:absolute;font-family:var(--mono);font-size:12px;padding:10px 14px;border-radius:14px;background:rgba(0,26,51,.72);border:1px solid rgba(132,175,213,.3);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);white-space:nowrap;box-shadow:0 10px 30px rgba(0,0,0,.35);animation:float 6s ease-in-out infinite}
 .chip b{display:block;font-family:var(--font);font-size:22px;color:#fff;letter-spacing:-.02em}
 .chip span{color:var(--cyan)}
 .chip.c1{left:2%;top:16%;transform:translateZ(120px)}
@@ -125,7 +126,7 @@ section{position:relative;z-index:1}
 .sec{padding:120px 0}
 .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--yellow);display:flex;align-items:center;gap:12px;margin-bottom:18px}
 .eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
-h2{font-size:clamp(32px,4.4vw,56px);line-height:1.06;letter-spacing:-.03em;font-weight:800;max-width:820px}
+h2{font-size:clamp(32px,4.4vw,56px);line-height:1.06;letter-spacing:-.015em;font-weight:800;max-width:820px}
 .sub{color:var(--muted);font-size:18px;max-width:640px;margin-top:18px}
 .head{margin-bottom:56px}
 
@@ -146,10 +147,10 @@ h2{font-size:clamp(32px,4.4vw,56px);line-height:1.06;letter-spacing:-.03em;font-
 /* benefit cards */
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .card{position:relative;padding:34px 30px;border-radius:var(--radius);background:linear-gradient(180deg,rgba(9,81,137,.18),rgba(0,26,51,.4));border:1px solid var(--line);overflow:hidden;transition:transform .4s var(--ease),border-color .3s}
-.card::before{content:"";position:absolute;inset:0;background:radial-gradient(380px circle at var(--mx,50%) var(--my,50%),rgba(252,200,44,.12),transparent 50%);opacity:0;transition:opacity .3s}
-.card:hover{transform:translateY(-6px);border-color:rgba(252,200,44,.35)}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(380px circle at var(--mx,50%) var(--my,50%),rgba(254,204,40,.12),transparent 50%);opacity:0;transition:opacity .3s}
+.card:hover{transform:translateY(-6px);border-color:rgba(254,204,40,.35)}
 .card:hover::before{opacity:1}
-.ico{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;background:rgba(252,200,44,.1);border:1px solid rgba(252,200,44,.3);margin-bottom:24px}
+.ico{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;background:rgba(254,204,40,.1);border:1px solid rgba(254,204,40,.3);margin-bottom:24px}
 .ico svg{width:26px;height:26px;stroke:var(--yellow);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .card h3{font-size:22px;letter-spacing:-.02em;margin-bottom:10px}
 .card p{color:var(--muted);font-size:15.5px}
@@ -166,12 +167,12 @@ h2{font-size:clamp(32px,4.4vw,56px);line-height:1.06;letter-spacing:-.03em;font-
 .ctl label{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;color:var(--muted);margin-bottom:10px;letter-spacing:.06em}
 .ctl label output{color:var(--yellow)}
 input[type=range]{-webkit-appearance:none;appearance:none;width:100%;max-width:380px;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--yellow) var(--p,50%),rgba(255,255,255,.12) var(--p,50%));cursor:pointer}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#fff;border:4px solid var(--yellow);box-shadow:0 0 0 6px rgba(252,200,44,.15)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#fff;border:4px solid var(--yellow);box-shadow:0 0 0 6px rgba(254,204,40,.15)}
 input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:#fff;border:4px solid var(--yellow)}
 .scene-pick{display:flex;flex-wrap:wrap;gap:8px}
 .tag{border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:600;cursor:pointer;color:var(--muted);transition:all .25s}
 .tag:hover{color:#fff;border-color:rgba(255,255,255,.3)}
-.tag.on{background:rgba(252,200,44,.12);color:var(--yellow);border-color:rgba(252,200,44,.5)}
+.tag.on{background:rgba(254,204,40,.12);color:var(--yellow);border-color:rgba(254,204,40,.5)}
 .hint{font-family:var(--mono);font-size:12px;color:var(--muted);display:flex;gap:8px;align-items:center}
 .hint i{display:inline-block;width:16px;height:16px;border:1.5px solid var(--muted);border-radius:50%;position:relative}
 .hint i::after{content:"";position:absolute;width:4px;height:4px;border-radius:50%;background:var(--yellow);left:50%;top:50%;transform:translate(-50%,-50%);animation:orbit 2.4s linear infinite}
@@ -202,9 +203,9 @@ input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;bac
 .promo small{display:block;font-size:15px;color:var(--navy);letter-spacing:.12em;text-shadow:none;font-family:var(--mono);margin-top:8px}
 .badge-3d{background:var(--navy);color:#fff;padding:10px 16px;border-radius:12px;font-weight:800;font-size:14px;letter-spacing:.04em;box-shadow:0 10px 24px rgba(0,48,92,.35);white-space:nowrap}
 .logo-plate{background:#fff;padding:14px 18px;border-radius:14px;box-shadow:0 18px 40px rgba(0,30,60,.25)}
-.logo-plate img{width:150px}
-.big1{font-size:200px;font-weight:800;line-height:.8;color:var(--yellow);text-shadow:0 2px 0 #e0a800,0 4px 0 #c99500,0 8px 0 #b08000,0 22px 40px rgba(176,128,0,.35)}
-.shoe{width:150px;height:auto;filter:drop-shadow(0 10px 18px rgba(0,0,0,.25))}
+.logo-plate img{width:170px;height:auto}
+.brand-line{font-weight:800;color:var(--navy);font-size:17px;text-align:center;line-height:1.15;white-space:nowrap}
+.brand-line small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--blue);margin-top:6px}
 .mode-label{position:absolute;left:12px;top:12px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--navy);background:rgba(255,255,255,.75);padding:4px 8px;border-radius:6px;z-index:5}
 
 /* compare */
@@ -216,7 +217,7 @@ input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;bac
 .compare .before{background-position:0 0}
 .compare .after{background-position:100% 0;clip-path:inset(0 0 0 var(--x,50%))}
 .compare .bar{position:absolute;top:0;bottom:0;left:var(--x,50%);width:2px;background:var(--yellow);transform:translateX(-1px);box-shadow:0 0 20px var(--yellow)}
-.compare .knob{position:absolute;top:50%;left:50%;width:52px;height:52px;border-radius:50%;background:var(--yellow);transform:translate(-50%,-50%);display:grid;place-items:center;color:var(--navy-900);box-shadow:0 0 0 8px rgba(252,200,44,.22),0 10px 30px rgba(0,0,0,.4)}
+.compare .knob{position:absolute;top:50%;left:50%;width:52px;height:52px;border-radius:50%;background:var(--yellow);transform:translate(-50%,-50%);display:grid;place-items:center;color:var(--navy-900);box-shadow:0 0 0 8px rgba(254,204,40,.22),0 10px 30px rgba(0,0,0,.4)}
 .compare .lbl{position:absolute;top:16px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;padding:6px 12px;border-radius:999px;background:rgba(0,15,31,.75);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 .compare .lbl.l{left:16px}.compare .lbl.r{right:16px;color:var(--yellow)}
 .compare-grid{display:grid;grid-template-columns:minmax(0,560px) 1fr;gap:48px;align-items:center}
@@ -278,7 +279,7 @@ input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;bac
 .orbit-stage::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(circle at 50% 60%,#000 20%,transparent 70%);-webkit-mask-image:radial-gradient(circle at 50% 60%,#000 20%,transparent 70%)}
 .orbit-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .35s;pointer-events:none}
 .orbit-stage img.on{opacity:1}
-.orbit-stage .ring{position:absolute;left:50%;bottom:7%;width:56%;height:14%;transform:translateX(-50%);border:1px dashed rgba(252,200,44,.45);border-radius:50%}
+.orbit-stage .ring{position:absolute;left:50%;bottom:7%;width:56%;height:14%;transform:translateX(-50%);border:1px dashed rgba(254,204,40,.45);border-radius:50%}
 .orbit-stage .deg{position:absolute;right:20px;top:18px;font-family:var(--mono);font-size:12px;color:var(--yellow);letter-spacing:.1em}
 .orbit-stage .drag{position:absolute;left:20px;top:18px;font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.1em}
 .thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:22px}
@@ -322,10 +323,10 @@ dialog#lb button{position:absolute;right:-10px;top:-46px;background:var(--yellow
 .search svg{position:absolute;left:15px;top:50%;transform:translateY(-50%);width:16px;height:16px;stroke:var(--grey);fill:none;stroke-width:2}
 .spec-table{display:grid;grid-template-columns:repeat(2,1fr);gap:0 40px;background:#fff;border-radius:24px;padding:12px 32px;box-shadow:0 20px 60px rgba(0,48,92,.08)}
 .row{display:flex;justify-content:space-between;gap:20px;padding:15px 0;border-bottom:1px solid #edf0f3;transition:background .2s}
-.row:hover{background:linear-gradient(90deg,transparent,rgba(252,200,44,.12),transparent)}
+.row:hover{background:linear-gradient(90deg,transparent,rgba(254,204,40,.12),transparent)}
 .row .k{color:var(--grey);font-size:14.5px}
 .row .v{font-family:var(--mono);font-weight:600;font-size:14px;text-align:right;color:var(--navy)}
-.row .v mark{background:rgba(252,200,44,.6);color:inherit;border-radius:3px}
+.row .v mark{background:rgba(254,204,40,.6);color:inherit;border-radius:3px}
 .row.hide{display:none}
 .spec-empty{display:none;padding:30px;text-align:center;color:var(--grey);grid-column:1/-1}
 .spec-foot{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px;align-items:center}
@@ -358,11 +359,11 @@ dialog#lb button{position:absolute;right:-10px;top:-46px;background:var(--yellow
 .perk .pi svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
 /* cta */
-#offer{background:radial-gradient(900px 500px at 85% 20%,rgba(31,130,214,.4),transparent 60%),radial-gradient(700px 400px at 0% 100%,rgba(252,200,44,.12),transparent 60%),var(--navy-950);overflow:hidden}
+#offer{background:radial-gradient(900px 500px at 85% 20%,rgba(31,130,214,.4),transparent 60%),radial-gradient(700px 400px at 0% 100%,rgba(254,204,40,.12),transparent 60%),var(--navy-950);overflow:hidden}
 .offer{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
 .offer .contact{margin-top:36px;display:grid;gap:14px}
 .offer .contact a{display:flex;align-items:center;gap:16px;padding:18px 20px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.03);transition:border-color .25s,background .25s}
-.offer .contact a:hover{border-color:rgba(252,200,44,.5);background:rgba(252,200,44,.05)}
+.offer .contact a:hover{border-color:rgba(254,204,40,.5);background:rgba(254,204,40,.05)}
 .offer .contact svg{width:22px;height:22px;stroke:var(--yellow);fill:none;stroke-width:2;flex-shrink:0}
 .offer .contact small{display:block;font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.1em}
 .offer .contact b{font-size:18px}
@@ -373,11 +374,11 @@ form > p{color:var(--muted);font-size:14px;margin-bottom:24px}
 .f{position:relative}
 .f.full{grid-column:1/-1}
 .f input,.f select,.f textarea{width:100%;background:rgba(0,10,20,.5);border:1px solid var(--line);border-radius:14px;padding:22px 16px 9px;font-size:15px;color:#fff;transition:border-color .2s,box-shadow .2s;appearance:none;-webkit-appearance:none}
-.f select{padding:22px 40px 9px 16px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23fcc82c' stroke-width='2'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+.f select{padding:22px 40px 9px 16px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23fecc28' stroke-width='2'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
 .f select option{background:var(--navy-900);color:#fff}
 .f textarea{min-height:96px;resize:vertical}
 .f label{position:absolute;left:17px;top:15px;font-size:15px;color:var(--muted);pointer-events:none;transition:all .2s var(--ease)}
-.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--yellow);box-shadow:0 0 0 4px rgba(252,200,44,.12)}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--yellow);box-shadow:0 0 0 4px rgba(254,204,40,.12)}
 .f input:focus+label,.f input:not(:placeholder-shown)+label,.f textarea:focus+label,.f textarea:not(:placeholder-shown)+label,.f select+label{top:7px;font-size:11px;color:var(--yellow);font-family:var(--mono);letter-spacing:.06em}
 .qty{display:flex;align-items:center;justify-content:space-between;border:1px solid var(--line);border-radius:14px;padding:8px 8px 8px 16px;background:rgba(0,10,20,.5)}
 .qty span{font-size:15px;color:var(--muted)}
@@ -501,11 +502,11 @@ footer{background:#000a14;border-top:1px solid var(--line);padding:56px 0 36px;f
     <div>
       <div class="kicker"><i></i><span id="scramble">SAMSUNG SPATIAL SIGNAGE · SMHX-P</span></div>
       <h1>
-        <span class="line"><span>Рекламата,</span></span>
-        <span class="line"><span>която излиза</span></span>
-        <span class="line"><span class="grad">от екрана.</span></span>
+        <span class="line"><span>Витрина</span></span>
+        <span class="line"><span>с истинска</span></span>
+        <span class="line"><span class="grad">дълбочина.</span></span>
       </h1>
-      <p class="lead">85-инчов <b>3D дисплей без очила</b>, който превръща всеки продукт във витрина. Спира погледа, задържа вниманието и продава – с доставка, монтаж и поддръжка от <b>Office 1</b>.</p>
+      <p class="lead">85-инчов <b>3D дисплей без очила</b>, който поставя продукта ви в обемно пространство зад стъклото – като в истинска витрина. Спира погледа, задържа вниманието и продава – с доставка, монтаж и поддръжка от <b>Office 1</b>.</p>
       <div class="hero-actions">
         <a class="btn btn-y" href="#offer">Поискай оферта
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -560,7 +561,7 @@ footer{background:#000a14;border-top:1px solid var(--line);padding:56px 0 36px;f
         <span class="num">01</span>
         <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg></div>
         <h3>Спира погледа</h3>
-        <p>Патентованата 3D плоча на Samsung придава реална дълбочина на 2D съдържание. Продуктът „изскача“ от рамката и привлича внимание от разстояние.</p>
+        <p>Патентованата 3D плоча на Samsung придава реална дълбочина на 2D съдържание. Продуктът стои в обемна витрина зад стъклото и привлича внимание от разстояние.</p>
       </article>
       <article class="card rv" data-d="1">
         <span class="num">02</span>
@@ -601,7 +602,6 @@ footer{background:#000a14;border-top:1px solid var(--line);padding:56px 0 36px;f
             <div class="scene-pick" id="scenePick">
               <button class="tag on" data-scene="promo">Промо кампания</button>
               <button class="tag" data-scene="brand">Бранд витрина</button>
-              <button class="tag" data-scene="product">Нов продукт</button>
             </div>
           </div>
           <div class="hint"><i></i> Наклонете дисплея с курсора</div>
@@ -633,16 +633,14 @@ footer{background:#000a14;border-top:1px solid var(--line);padding:56px 0 36px;f
                 <div class="obj" data-z="80" data-x="18" data-y="-34"><div class="badge-3d">НОВО</div></div>
               </div>
               <div class="scene" data-scene="brand">
-                <div class="obj" data-z="20" data-x="0" data-y="-2"><div class="big1">1</div></div>
-                <div class="obj" data-z="130" data-x="0" data-y="26"><div class="logo-plate"><img src="assets/office1-logo.webp" alt="" width="400" height="125"></div><div class="sh" style="top:140%"></div></div>
-                <div class="obj" data-z="170" data-x="-26" data-y="-30"><div class="cube"><div></div><div></div><div></div><div></div><div></div><div></div></div></div>
-                <div class="obj" data-z="90" data-x="28" data-y="-18"><div class="sphere" style="width:44px;height:44px"></div></div>
+                <div class="obj" data-z="40" data-x="0" data-y="-26"><div class="badge-3d">ОФИЦИАЛЕН ДИСТРИБУТОР</div></div>
+                <div class="obj" data-z="110" data-x="0" data-y="-4"><div class="logo-plate"><img src="assets/office1-logo.webp" alt="" width="400" height="125"></div><div class="sh" style="top:150%"></div></div>
+                <div class="obj" data-z="70" data-x="0" data-y="18"><div class="brand-line">Всичко за офиса<small>И БИЗНЕСА</small></div></div>
+                <div class="obj" data-z="160" data-x="-26" data-y="34"><div class="cube"><div></div><div></div><div></div><div></div><div></div><div></div></div></div>
+                <div class="obj" data-z="130" data-x="28" data-y="32"><div class="sphere" style="width:46px;height:46px"></div><div class="sh" style="top:150%"></div></div>
+                <div class="obj" data-z="90" data-x="26" data-y="-36"><div class="sphere b" style="width:34px;height:34px"></div></div>
               </div>
-              <div class="scene" data-scene="product">
-                <div class="obj" data-z="150" data-x="0" data-y="-6"><svg class="shoe" viewBox="0 0 200 110" aria-hidden="true"><defs><linearGradient id="sh1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f82d6"/><stop offset="1" stop-color="#00305c"/></linearGradient></defs><path d="M8 78c0-14 6-30 18-40 8-7 22-8 30-2 10 8 24 16 44 18 26 3 54 8 74 20 10 6 18 14 18 22 0 6-4 8-10 8H22C12 104 8 94 8 78z" fill="url(#sh1)"/><path d="M8 88h184v8c0 6-4 8-10 8H22C12 104 8 98 8 88z" fill="#fff"/><path d="M62 42l12 22M76 48l10 18M90 52l8 16" stroke="#fcc82c" stroke-width="5" stroke-linecap="round"/><path d="M120 66c20 2 40 6 56 14" stroke="#fcc82c" stroke-width="6" stroke-linecap="round" fill="none"/></svg><div class="sh" style="top:115%"></div></div>
-                <div class="obj" data-z="60" data-x="0" data-y="-32"><div class="badge-3d" style="background:var(--yellow);color:var(--navy-900)">ЛИМИТИРАНА СЕРИЯ</div></div>
-                <div class="obj" data-z="100" data-x="0" data-y="28"><div class="promo" style="font-size:42px;color:var(--navy);text-shadow:0 2px 0 #001a33,0 10px 20px rgba(0,48,92,.3)">189 лв.<small>В МАГАЗИНА СЕГА</small></div></div>
-              </div>
+            </div>
             </div>
           </div>
         </div>
@@ -670,7 +668,7 @@ footer{background:#000a14;border-top:1px solid var(--line);padding:56px 0 36px;f
           <p>True 3D Enhancer автоматично добавя фини сенки и дълбочина към обектите, за да засили усещането за триизмерност – без да преработвате съдържанието си.</p>
           <ul>
             <li>Работи с вашите съществуващи 2D визии и видеа</li>
-            <li>Обектът „увисва“ във въздуха с реалистична сянка</li>
+            <li>Обектът получава реалистична сянка и обем в пространството на екрана</li>
             <li>По-силен ефект = по-дълго задържане на погледа</li>
           </ul>
         </div>
@@ -788,7 +786,7 @@ footer{background:#000a14;border-top:1px solid var(--line);padding:56px 0 36px;f
           <g id="tv">
             <rect id="tvR" x="150" y="30" width="138" height="240" rx="3" fill="#0b0b0b" stroke="#2c3a48"/>
             <rect id="tvS" x="154" y="34" width="130" height="232" fill="url(#scr)" opacity=".85"/>
-            <text id="tvT" x="219" y="155" text-anchor="middle" fill="#fcc82c" font-family="JetBrains Mono" font-size="14" font-weight="600">85″</text>
+            <text id="tvT" x="219" y="155" text-anchor="middle" fill="#fecc28" font-family="Fira Code" font-size="14" font-weight="600">85″</text>
           </g>
           <!-- person 175cm = ~219px -->
           <g fill="rgba(231,238,247,.85)">
@@ -1000,7 +998,7 @@ const draw = () => {
   // particles
   for (const p of parts) {
     p.y -= p.v; if (p.y < -5) { p.y = H + 5; p.x = Math.random() * W; }
-    ctx.fillStyle = p.y2 ? 'rgba(252,200,44,.75)' : 'rgba(95,208,255,.55)';
+    ctx.fillStyle = p.y2 ? 'rgba(254,204,40,.75)' : 'rgba(132,175,213,.55)';
     ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 7); ctx.fill();
   }
   t++;
@@ -1134,7 +1132,7 @@ new IntersectionObserver(([e], o) => {
   requestAnimationFrame(sweep);
 }, { threshold: .5 }).observe(cmp);
 const cmpCopy = [
-  `<p>True 3D Enhancer автоматично добавя фини сенки и дълбочина към обектите, за да засили усещането за триизмерност – без да преработвате съдържанието си.</p><ul><li>Работи с вашите съществуващи 2D визии и видеа</li><li>Обектът „увисва“ във въздуха с реалистична сянка</li><li>По-силен ефект = по-дълго задържане на погледа</li></ul>`,
+  `<p>True 3D Enhancer автоматично добавя фини сенки и дълбочина към обектите, за да засили усещането за триизмерност – без да преработвате съдържанието си.</p><ul><li>Работи с вашите съществуващи 2D визии и видеа</li><li>Обектът получава реалистична сянка и обем в пространството на екрана</li><li>По-силен ефект = по-дълго задържане на погледа</li></ul>`,
   `<p>Anti-glare панелът с оптимизирано матово покритие намалява отраженията от осветлението и слънцето – съдържанието остава четимо дори до витрина.</p><ul><li>Ясна картина в ярко осветени търговски зали</li><li>Подходящ за витрини с дневна светлина</li><li>Чисти цветове без „огледален“ ефект</li></ul>`
 ];
 initSeg($('#cmpSeg'), b => {
@@ -1170,8 +1168,8 @@ new IntersectionObserver(([e]) => { fvisible = e.isIntersecting; if (fvisible) s
 const check = '<svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>';
 const cases = [
   { k: 'РИТЕЙЛ И МОДА', n: 'Мода', img: 'assets/f-retail-window.jpg', pos: 'center', h: 'Витрина, която работи и след затваряне', p: 'Нова колекция „стъпва“ във витрината в реален ръст. Минувачите спират, защото виждат нещо, което плоските екрани не могат да покажат.', l: ['Модели в реален размер в портретен формат', 'Смяна на колекции за секунди през VXT', 'Работа 24/7 – витрината продава и нощем'] },
-  { k: 'HORECA', n: 'HoReCa', img: 'assets/f-enhancer.jpg', pos: '100% 50%', h: 'Менюто, което се яде с очи', p: 'Продуктът „увисва“ пред гостите със сянка и обем. Идеално за промо позиции, сезонни предложения и upsell на касата.', l: ['Динамично меню по часове от деня', 'True 3D Enhancer за апетитна визия', 'Anti-glare за ярки зали и тераси'] },
-  { k: 'СПОРТ И ШОУРУМИ', n: 'Шоуруми', img: 'assets/f-ultrathin.jpg', pos: '30% 50%', h: 'Продукти, които летят от стената', p: 'Обувки, екипировка или техника се въртят в пространството на екрана. Ултратънкият корпус се вписва в колони и стени без строителни промени.', l: ['52 мм – монтаж в колони и ниши', 'Продуктов лансмент с WOW ефект', 'Синхронизирани кампании в цялата верига'] },
+  { k: 'HORECA', n: 'HoReCa', img: 'assets/f-enhancer.jpg', pos: '100% 50%', h: 'Менюто, което се яде с очи', p: 'Продуктът стои в обемна витрина пред гостите – със сянка и дълбочина. Идеално за промо позиции, сезонни предложения и upsell на касата.', l: ['Динамично меню по часове от деня', 'True 3D Enhancer за апетитна визия', 'Anti-glare за ярки зали и тераси'] },
+  { k: 'СПОРТ И ШОУРУМИ', n: 'Шоуруми', img: 'assets/f-ultrathin.jpg', pos: '30% 50%', h: 'Продуктите ви – в обемна витрина на стената', p: 'Обувки, екипировка или техника се въртят в пространството на екрана. Ултратънкият корпус се вписва в колони и стени без строителни промени.', l: ['52 мм – монтаж в колони и ниши', 'Продуктов лансмент с WOW ефект', 'Синхронизирани кампании в цялата верига'] },
   { k: 'МУЗЕИ И ГАЛЕРИИ', n: 'Музеи', img: 'assets/f-smartthings.jpg', pos: '75% 50%', h: 'Експонатите оживяват', p: 'Дигитални копия на артефакти с реален обем – без витрини и без риск за оригинала. SmartThings Pro свързва екрана с осветлението и климата.', l: ['Дигитални експонати в 3D', 'Интеграция със смарт сградата', 'Тиха работа и ниска консумация в standby (0.5 W)'] },
   { k: 'ВЕРИГИ И ТЪРГОВСКИ ЦЕНТРОВЕ', n: 'Вериги', img: 'assets/f-vxt.jpg', pos: '50% 100%', h: 'Една кампания. Всички обекти. Един клик.', p: 'Samsung VXT управлява съдържанието, графиците и състоянието на всеки екран – в мол, бутик или лоби, независимо от града.', l: ['Централизиран CMS в облака', 'Отдалечена диагностика и настройки', 'Мащабиране от 1 до стотици екрана'] }
 ];
