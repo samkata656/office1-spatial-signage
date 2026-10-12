@@ -124,7 +124,8 @@ h1 .grad{background:linear-gradient(transparent 70%,var(--yellow) 70%,var(--yell
 @keyframes marq{to{transform:translateX(-50%)}}
 
 /* sections */
-section{position:relative;z-index:1}
+section{position:relative;z-index:1;scroll-margin-top:118px}
+@media (max-width:900px){section{scroll-margin-top:64px}}
 .sec{padding:110px 0}
 .alt{background:var(--paper)}
 .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);display:flex;align-items:center;gap:12px;margin-bottom:16px;font-weight:600}
