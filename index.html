@@ -1,0 +1,1298 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Samsung Spatial Signage | Office 1 Business</title>
+<meta name="description" content="Samsung Spatial Signage SMHX-P – 85-инчов 3D дисплей без очила за ритейл, HoReCa и шоуруми. Доставка, монтаж и поддръжка от Office 1.">
+<meta property="og:title" content="Samsung Spatial Signage SMHX-P | Office 1 Business">
+<meta property="og:description" content="Рекламата, която излиза от екрана. 85&quot; 4K 3D дисплей без очила – от Office 1.">
+<meta property="og:image" content="assets/f-retail-window.jpg">
+<meta name="theme-color" content="#00305c">
+<link rel="icon" href="assets/office1-logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+:root{
+  --navy-950:#000f1f; --navy-900:#001a33; --navy:#00305c; --blue:#095189; --blue-hi:#1f82d6; --cyan:#5fd0ff;
+  --yellow:#fcc82c; --yellow-hi:#ffd95e; --red:#e81515;
+  --ink:#141414; --grey:#767676; --paper:#f3f3f3; --white:#fff;
+  --text:#e7eef7; --muted:#9db2c9; --line:rgba(159,196,235,.16);
+  --card:rgba(9,81,137,.14); --card-hi:rgba(31,130,214,.22);
+  --radius:20px; --max:1200px;
+  --font:'Manrope',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--font);background:var(--navy-950);color:var(--text);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--yellow);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.mono{font-family:var(--mono)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* progress + cursor glow */
+#progress{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--yellow),var(--blue-hi));z-index:200}
+#glow{position:fixed;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:0;left:0;top:0;
+  background:radial-gradient(circle,rgba(31,130,214,.16),transparent 65%);transform:translate(-50%,-50%);transition:opacity .4s;opacity:0}
+@media (hover:hover){body:hover #glow{opacity:1}}
+
+/* header */
+header{position:fixed;inset:0 0 auto 0;z-index:100;transition:background .3s,backdrop-filter .3s,border-color .3s;border-bottom:1px solid transparent}
+header.scrolled{background:rgba(0,15,31,.72);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-color:var(--line)}
+.nav{display:flex;align-items:center;gap:28px;height:76px}
+.logo{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.logo-chip{background:#fff;border-radius:12px;padding:8px 12px;display:flex;box-shadow:0 6px 24px rgba(0,0,0,.25)}
+.logo-chip img{height:24px;width:auto}
+.logo small{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;line-height:1.2}
+.nav ul{display:flex;gap:4px;list-style:none;margin-left:auto}
+.nav ul a{display:block;padding:8px 14px;border-radius:999px;font-weight:600;font-size:14px;color:var(--muted);transition:color .2s,background .2s}
+.nav ul a:hover,.nav ul a.active{color:#fff;background:rgba(255,255,255,.07)}
+.nav-cta{display:flex;align-items:center;gap:14px}
+.phone{font-family:var(--mono);font-size:13px;color:var(--muted);white-space:nowrap}
+.phone b{color:#fff;font-weight:600}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:700;font-size:15px;border:0;cursor:pointer;position:relative;overflow:hidden;transition:transform .25s var(--ease),box-shadow .25s,background .25s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px)}
+.btn-y{background:var(--yellow);color:var(--navy-900);box-shadow:0 8px 30px rgba(252,200,44,.25)}
+.btn-y:hover{background:var(--yellow-hi);box-shadow:0 12px 40px rgba(252,200,44,.4)}
+.btn-y::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s}
+.btn-y:hover::after{transform:translateX(120%)}
+.btn-ghost{background:rgba(255,255,255,.06);color:#fff;border:1px solid var(--line)}
+.btn-ghost:hover{background:rgba(255,255,255,.12)}
+.btn-sm{padding:10px 18px;font-size:14px}
+.burger{display:none;margin-left:auto;background:none;border:1px solid var(--line);border-radius:12px;width:44px;height:44px;cursor:pointer}
+.burger span{display:block;width:18px;height:2px;background:#fff;margin:4px auto;transition:transform .3s}
+
+/* hero */
+#hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:110px 0 60px;overflow:hidden;
+  background:radial-gradient(1200px 600px at 75% 40%,rgba(9,81,137,.55),transparent 60%),radial-gradient(800px 500px at 10% 90%,rgba(0,48,92,.8),transparent 70%),var(--navy-950)}
+#hero canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--yellow);padding:7px 14px;border:1px solid rgba(252,200,44,.35);border-radius:999px;background:rgba(252,200,44,.06);margin-bottom:26px}
+.kicker i{width:8px;height:8px;border-radius:50%;background:var(--yellow);box-shadow:0 0 12px var(--yellow);animation:pulse 1.8s infinite}
+@keyframes pulse{50%{opacity:.35}}
+h1{font-size:clamp(40px,6.2vw,80px);line-height:1.02;letter-spacing:-.035em;font-weight:800}
+h1 .line{display:block;overflow:hidden;padding-bottom:.06em}
+h1 .line span{display:inline-block;transform:translateY(110%);animation:rise .9s var(--ease) forwards}
+h1 .line:nth-child(2) span{animation-delay:.12s}
+h1 .line:nth-child(3) span{animation-delay:.24s}
+@keyframes rise{to{transform:none}}
+.grad{background:linear-gradient(95deg,var(--yellow) 0%,#fff 45%,var(--cyan) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% 100%;animation:shine 6s linear infinite}
+@keyframes shine{to{background-position:-200% 0}}
+.lead{font-size:clamp(16px,1.6vw,19px);color:var(--muted);max-width:540px;margin:26px 0 34px}
+.lead b{color:#fff;font-weight:600}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.partner{display:flex;align-items:center;gap:14px;margin-top:40px;padding-top:26px;border-top:1px solid var(--line);max-width:520px}
+.partner .seal{width:46px;height:46px;flex-shrink:0;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--yellow),#f0a500);color:var(--navy-900);font-weight:800;font-size:20px}
+.partner p{font-size:14px;color:var(--muted);line-height:1.45}
+.partner b{color:#fff}
+
+.stage{position:relative;perspective:1400px;height:min(78vh,680px);display:grid;place-items:center}
+.stage-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .5s var(--ease)}
+.stage-img{position:absolute;inset:0;margin:auto;height:100%;width:auto;max-width:none;left:50%;transform:translateX(-50%) translateZ(0);filter:drop-shadow(0 40px 60px rgba(0,0,0,.6))}
+.stage-halo{position:absolute;left:50%;top:50%;width:70%;aspect-ratio:1;transform:translate(-50%,-50%) translateZ(-80px);border-radius:50%;background:radial-gradient(circle,rgba(31,130,214,.55),rgba(252,200,44,.08) 55%,transparent 70%);filter:blur(10px);animation:breathe 6s ease-in-out infinite}
+@keyframes breathe{50%{transform:translate(-50%,-50%) translateZ(-80px) scale(1.12);opacity:.8}}
+.scan{position:absolute;left:31%;right:31%;top:10%;height:80%;overflow:hidden;transform:translateZ(2px);pointer-events:none;mix-blend-mode:screen}
+.scan::before{content:"";position:absolute;left:0;right:0;height:22%;background:linear-gradient(180deg,transparent,rgba(95,208,255,.22),transparent);animation:scan 4.5s linear infinite}
+@keyframes scan{from{top:-25%}to{top:105%}}
+.chip{position:absolute;font-family:var(--mono);font-size:12px;padding:10px 14px;border-radius:14px;background:rgba(0,26,51,.72);border:1px solid rgba(95,208,255,.3);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);white-space:nowrap;box-shadow:0 10px 30px rgba(0,0,0,.35);animation:float 6s ease-in-out infinite}
+.chip b{display:block;font-family:var(--font);font-size:22px;color:#fff;letter-spacing:-.02em}
+.chip span{color:var(--cyan)}
+.chip.c1{left:2%;top:16%;transform:translateZ(120px)}
+.chip.c2{right:0;top:30%;transform:translateZ(160px);animation-delay:-2s}
+.chip.c3{left:6%;bottom:18%;transform:translateZ(90px);animation-delay:-4s}
+.chip.c4{right:6%;bottom:8%;transform:translateZ(140px);animation-delay:-1s}
+@keyframes float{50%{translate:0 -12px}}
+.scroll-hint{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);z-index:3;font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:8px}
+.scroll-hint i{width:1px;height:36px;background:linear-gradient(var(--yellow),transparent);animation:drip 2s infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* marquee */
+.marquee{border-block:1px solid var(--line);background:var(--navy-900);overflow:hidden;position:relative;z-index:2}
+.marquee-track{display:flex;gap:56px;padding:18px 0;width:max-content;animation:marq 38s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee span{font-family:var(--mono);font-size:14px;color:var(--muted);letter-spacing:.08em;white-space:nowrap;display:flex;align-items:center;gap:56px}
+.marquee span::after{content:"◆";color:var(--yellow);font-size:9px}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* sections */
+section{position:relative;z-index:1}
+.sec{padding:120px 0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--yellow);display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+h2{font-size:clamp(32px,4.4vw,56px);line-height:1.06;letter-spacing:-.03em;font-weight:800;max-width:820px}
+.sub{color:var(--muted);font-size:18px;max-width:640px;margin-top:18px}
+.head{margin-bottom:56px}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(40px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv[data-d="1"]{transition-delay:.1s}.rv[data-d="2"]{transition-delay:.2s}.rv[data-d="3"]{transition-delay:.3s}.rv[data-d="4"]{transition-delay:.4s}.rv[data-d="5"]{transition-delay:.5s}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.stat{background:var(--navy-950);padding:30px 22px;position:relative}
+.stat::before{content:"";position:absolute;left:0;top:0;height:2px;width:0;background:var(--yellow);transition:width 1.2s var(--ease)}
+.stat.in::before{width:100%}
+.stat .v{font-size:clamp(30px,3.4vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1}
+.stat .v small{font-size:.45em;color:var(--cyan);font-weight:600;margin-left:3px}
+.stat .l{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:10px;letter-spacing:.04em}
+
+/* benefit cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{position:relative;padding:34px 30px;border-radius:var(--radius);background:linear-gradient(180deg,rgba(9,81,137,.18),rgba(0,26,51,.4));border:1px solid var(--line);overflow:hidden;transition:transform .4s var(--ease),border-color .3s}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(380px circle at var(--mx,50%) var(--my,50%),rgba(252,200,44,.12),transparent 50%);opacity:0;transition:opacity .3s}
+.card:hover{transform:translateY(-6px);border-color:rgba(252,200,44,.35)}
+.card:hover::before{opacity:1}
+.ico{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;background:rgba(252,200,44,.1);border:1px solid rgba(252,200,44,.3);margin-bottom:24px}
+.ico svg{width:26px;height:26px;stroke:var(--yellow);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:22px;letter-spacing:-.02em;margin-bottom:10px}
+.card p{color:var(--muted);font-size:15.5px}
+.card .num{position:absolute;right:24px;top:22px;font-family:var(--mono);font-size:12px;color:rgba(255,255,255,.25)}
+
+/* depth lab */
+#lab{background:linear-gradient(180deg,var(--navy-950),var(--navy-900) 30%,var(--navy-900) 70%,var(--navy-950))}
+.lab{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.controls{display:flex;flex-direction:column;gap:22px;margin-top:34px}
+.seg{display:inline-flex;padding:5px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--line);position:relative;width:max-content}
+.seg button{position:relative;z-index:1;border:0;background:none;padding:10px 22px;border-radius:999px;font-weight:700;font-size:14px;cursor:pointer;color:var(--muted);transition:color .3s}
+.seg button.on{color:var(--navy-900)}
+.seg .pill{position:absolute;top:5px;bottom:5px;left:5px;border-radius:999px;background:var(--yellow);transition:transform .4s var(--ease),width .4s var(--ease)}
+.ctl label{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;color:var(--muted);margin-bottom:10px;letter-spacing:.06em}
+.ctl label output{color:var(--yellow)}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;max-width:380px;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--yellow) var(--p,50%),rgba(255,255,255,.12) var(--p,50%));cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#fff;border:4px solid var(--yellow);box-shadow:0 0 0 6px rgba(252,200,44,.15)}
+input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:#fff;border:4px solid var(--yellow)}
+.scene-pick{display:flex;flex-wrap:wrap;gap:8px}
+.tag{border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:600;cursor:pointer;color:var(--muted);transition:all .25s}
+.tag:hover{color:#fff;border-color:rgba(255,255,255,.3)}
+.tag.on{background:rgba(252,200,44,.12);color:var(--yellow);border-color:rgba(252,200,44,.5)}
+.hint{font-family:var(--mono);font-size:12px;color:var(--muted);display:flex;gap:8px;align-items:center}
+.hint i{display:inline-block;width:16px;height:16px;border:1.5px solid var(--muted);border-radius:50%;position:relative}
+.hint i::after{content:"";position:absolute;width:4px;height:4px;border-radius:50%;background:var(--yellow);left:50%;top:50%;transform:translate(-50%,-50%);animation:orbit 2.4s linear infinite}
+@keyframes orbit{from{transform:translate(-50%,-50%) rotate(0) translateX(8px)}to{transform:translate(-50%,-50%) rotate(360deg) translateX(8px)}}
+
+.panel-wrap{display:grid;place-items:center;perspective:1200px;touch-action:none}
+.panel{position:relative;width:min(100%,380px);aspect-ratio:1101/1920;border-radius:6px;background:#0b0b0b;padding:10px;box-shadow:0 60px 120px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.08),0 0 80px rgba(31,130,214,.25);transform-style:preserve-3d;transition:transform .2s linear}
+.screen{position:relative;width:100%;height:100%;overflow:hidden;border-radius:2px;background:#e9ecef;transform-style:preserve-3d;perspective:900px}
+.screen svg.room{position:absolute;inset:0;width:100%;height:100%}
+.room .wall{transition:opacity .4s}
+.objs{position:absolute;inset:0;transform-style:preserve-3d}
+.obj{position:absolute;left:50%;top:50%;transform-style:preserve-3d;transition:opacity .5s,transform .6s var(--ease)}
+.obj .sh{position:absolute;left:50%;width:70%;height:12px;border-radius:50%;background:radial-gradient(rgba(0,0,0,.35),transparent 70%);transform:translateX(-50%);filter:blur(3px);transition:opacity .4s}
+.flat .room .wall{opacity:0}
+.flat .obj .sh{opacity:0}
+.screen.flat{background:#f4f5f7}
+.scene{position:absolute;inset:0;transition:opacity .5s;transform-style:preserve-3d}
+.scene:not(.on){opacity:0;pointer-events:none}
+.sphere{width:90px;height:90px;border-radius:50%;background:radial-gradient(circle at 32% 30%,#fff3c4,var(--yellow) 35%,#c98a00 80%);box-shadow:inset -10px -14px 30px rgba(120,70,0,.35)}
+.sphere.b{background:radial-gradient(circle at 32% 30%,#cfe6ff,var(--blue-hi) 38%,var(--navy) 85%);box-shadow:inset -10px -14px 30px rgba(0,20,50,.45)}
+.cube{width:70px;height:70px;position:relative;transform-style:preserve-3d;animation:spin 12s linear infinite}
+.cube div{position:absolute;inset:0;background:linear-gradient(135deg,rgba(9,81,137,.92),rgba(0,48,92,.95));border:1px solid rgba(255,255,255,.35)}
+.cube div:nth-child(1){transform:translateZ(35px)}.cube div:nth-child(2){transform:rotateY(180deg) translateZ(35px)}
+.cube div:nth-child(3){transform:rotateY(90deg) translateZ(35px)}.cube div:nth-child(4){transform:rotateY(-90deg) translateZ(35px)}
+.cube div:nth-child(5){transform:rotateX(90deg) translateZ(35px);background:var(--yellow)}.cube div:nth-child(6){transform:rotateX(-90deg) translateZ(35px)}
+@keyframes spin{to{transform:rotateX(-18deg) rotateY(360deg)}}
+.promo{font-weight:800;color:var(--red);font-size:64px;letter-spacing:-.05em;line-height:.9;text-align:center;text-shadow:0 2px 0 #b20000,0 4px 0 #8a0000,0 10px 24px rgba(232,21,21,.35)}
+.promo small{display:block;font-size:15px;color:var(--navy);letter-spacing:.12em;text-shadow:none;font-family:var(--mono);margin-top:8px}
+.badge-3d{background:var(--navy);color:#fff;padding:10px 16px;border-radius:12px;font-weight:800;font-size:14px;letter-spacing:.04em;box-shadow:0 10px 24px rgba(0,48,92,.35);white-space:nowrap}
+.logo-plate{background:#fff;padding:14px 18px;border-radius:14px;box-shadow:0 18px 40px rgba(0,30,60,.25)}
+.logo-plate img{width:150px}
+.big1{font-size:200px;font-weight:800;line-height:.8;color:var(--yellow);text-shadow:0 2px 0 #e0a800,0 4px 0 #c99500,0 8px 0 #b08000,0 22px 40px rgba(176,128,0,.35)}
+.shoe{width:150px;height:auto;filter:drop-shadow(0 10px 18px rgba(0,0,0,.25))}
+.mode-label{position:absolute;left:12px;top:12px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--navy);background:rgba(255,255,255,.75);padding:4px 8px;border-radius:6px;z-index:5}
+
+/* compare */
+.compare-box{margin-top:90px}
+.compare-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:28px}
+.compare-head h3{font-size:clamp(24px,2.8vw,34px);letter-spacing:-.02em;max-width:620px;line-height:1.15}
+.compare{position:relative;aspect-ratio:720/800;max-height:640px;margin:0 auto;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);user-select:none;touch-action:pan-y;cursor:ew-resize;background:#111}
+.compare .layer{position:absolute;inset:0;background-size:200% 100%;background-repeat:no-repeat}
+.compare .before{background-position:0 0}
+.compare .after{background-position:100% 0;clip-path:inset(0 0 0 var(--x,50%))}
+.compare .bar{position:absolute;top:0;bottom:0;left:var(--x,50%);width:2px;background:var(--yellow);transform:translateX(-1px);box-shadow:0 0 20px var(--yellow)}
+.compare .knob{position:absolute;top:50%;left:50%;width:52px;height:52px;border-radius:50%;background:var(--yellow);transform:translate(-50%,-50%);display:grid;place-items:center;color:var(--navy-900);box-shadow:0 0 0 8px rgba(252,200,44,.22),0 10px 30px rgba(0,0,0,.4)}
+.compare .lbl{position:absolute;top:16px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;padding:6px 12px;border-radius:999px;background:rgba(0,15,31,.75);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.compare .lbl.l{left:16px}.compare .lbl.r{right:16px;color:var(--yellow)}
+.compare-grid{display:grid;grid-template-columns:minmax(0,560px) 1fr;gap:48px;align-items:center}
+.compare-copy p{color:var(--muted);font-size:17px;margin-bottom:18px}
+.compare-copy ul{list-style:none;display:grid;gap:12px}
+.compare-copy li{display:flex;gap:12px;align-items:flex-start;font-size:15.5px}
+.compare-copy li::before{content:"";flex-shrink:0;width:8px;height:8px;margin-top:8px;border-radius:2px;background:var(--yellow);transform:rotate(45deg)}
+
+/* features */
+.feat{display:grid;grid-template-columns:380px 1fr;gap:40px;align-items:start}
+.tabs{display:flex;flex-direction:column;gap:6px;position:sticky;top:110px}
+.tab{position:relative;text-align:left;border:1px solid transparent;background:none;border-radius:16px;padding:18px 20px;cursor:pointer;transition:background .3s,border-color .3s;overflow:hidden}
+.tab .t{display:flex;align-items:center;gap:14px;font-weight:700;font-size:17px;color:var(--muted);transition:color .3s}
+.tab .t em{font-style:normal;font-family:var(--mono);font-size:12px;color:rgba(255,255,255,.3);transition:color .3s}
+.tab .d{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease)}
+.tab .d p{overflow:hidden;color:var(--muted);font-size:14.5px;padding-left:34px}
+.tab .bar{position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--yellow)}
+.tab.on{background:var(--card);border-color:var(--line)}
+.tab.on .t{color:#fff}.tab.on .t em{color:var(--yellow)}
+.tab.on .d{grid-template-rows:1fr}
+.tab.on .d p{padding-top:8px}
+.tab.on .bar{animation:fill var(--dur,7s) linear forwards}
+.feat.paused .tab.on .bar{animation-play-state:paused}
+@keyframes fill{to{width:100%}}
+.viewer{position:relative;border-radius:24px;overflow:hidden;border:1px solid var(--line);aspect-ratio:1440/820;background:#000}
+.viewer img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity .8s var(--ease),transform 1.6s var(--ease)}
+.viewer img.on{opacity:1;transform:none}
+.viewer .hud{position:absolute;left:0;right:0;bottom:0;padding:60px 28px 24px;background:linear-gradient(transparent,rgba(0,10,20,.88));display:flex;justify-content:space-between;align-items:end;gap:20px}
+.viewer .hud h4{font-size:clamp(20px,2.4vw,30px);letter-spacing:-.02em;line-height:1.15}
+.viewer .hud .k{font-family:var(--mono);font-size:12px;color:var(--yellow);letter-spacing:.12em;margin-bottom:6px}
+.corner{position:absolute;width:22px;height:22px;border-color:var(--yellow);border-style:solid;z-index:2;opacity:.9}
+.corner.tl{left:14px;top:14px;border-width:2px 0 0 2px}.corner.tr{right:14px;top:14px;border-width:2px 2px 0 0}
+.corner.bl{left:14px;bottom:14px;border-width:0 0 2px 2px}.corner.br{right:14px;bottom:14px;border-width:0 2px 2px 0}
+.note{font-size:12px;color:var(--grey);margin-top:14px}
+
+/* use cases */
+#cases{background:var(--navy-900)}
+.case-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
+.case{display:grid;grid-template-columns:1.25fr 1fr;border-radius:28px;overflow:hidden;border:1px solid var(--line);background:var(--navy-950);min-height:480px}
+.case-img{position:relative;overflow:hidden}
+.case-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .6s,transform 6s linear}
+.case-img img.swap{opacity:0}
+.case:hover .case-img img{transform:scale(1.05)}
+.case-txt{padding:48px 44px;display:flex;flex-direction:column;justify-content:center}
+.case-txt .k{font-family:var(--mono);color:var(--yellow);font-size:12px;letter-spacing:.16em;margin-bottom:14px}
+.case-txt h3{font-size:clamp(26px,2.8vw,36px);letter-spacing:-.025em;line-height:1.1;margin-bottom:16px}
+.case-txt p{color:var(--muted);margin-bottom:22px}
+.case-txt ul{list-style:none;display:grid;gap:10px}
+.case-txt li{display:flex;gap:12px;font-size:15px}
+.case-txt li svg{flex-shrink:0;width:20px;height:20px;stroke:var(--yellow);fill:none;stroke-width:2.2;margin-top:2px}
+.fade-swap{transition:opacity .35s,transform .35s}
+.fade-swap.out{opacity:0;transform:translateY(10px)}
+
+/* 360 */
+.orbit{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
+.orbit-stage{position:relative;aspect-ratio:1300/1038;border-radius:28px;border:1px solid var(--line);overflow:hidden;cursor:grab;touch-action:pan-y;
+  background:radial-gradient(60% 60% at 50% 55%,rgba(31,130,214,.35),transparent 70%),linear-gradient(180deg,var(--navy-900),var(--navy-950))}
+.orbit-stage:active{cursor:grabbing}
+.orbit-stage::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(circle at 50% 60%,#000 20%,transparent 70%);-webkit-mask-image:radial-gradient(circle at 50% 60%,#000 20%,transparent 70%)}
+.orbit-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .35s;pointer-events:none}
+.orbit-stage img.on{opacity:1}
+.orbit-stage .ring{position:absolute;left:50%;bottom:7%;width:56%;height:14%;transform:translateX(-50%);border:1px dashed rgba(252,200,44,.45);border-radius:50%}
+.orbit-stage .deg{position:absolute;right:20px;top:18px;font-family:var(--mono);font-size:12px;color:var(--yellow);letter-spacing:.1em}
+.orbit-stage .drag{position:absolute;left:20px;top:18px;font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.1em}
+.thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:22px}
+.thumbs button{aspect-ratio:1;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.04);cursor:pointer;padding:6px;transition:border-color .25s,transform .25s}
+.thumbs button:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.3)}
+.thumbs img{width:100%;height:100%;object-fit:contain}
+.thumbs button.ports{background:#000}
+.thumbs button.ports img{object-fit:cover;border-radius:9px}
+
+/* lightbox */
+dialog#lb{border:0;padding:0;background:transparent;max-width:min(1100px,94vw);max-height:90vh;margin:auto;overflow:visible}
+dialog#lb::backdrop{background:rgba(0,8,18,.88);backdrop-filter:blur(6px)}
+dialog#lb img{max-height:84vh;width:auto;border-radius:18px}
+dialog#lb button{position:absolute;right:-10px;top:-46px;background:var(--yellow);color:var(--navy-900);border:0;border-radius:50%;width:38px;height:38px;font-weight:800;cursor:pointer;font-size:18px}
+
+/* size */
+.size{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.size-viz{position:relative;border-radius:28px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(9,81,137,.15),rgba(0,26,51,.4));padding:28px}
+.size-viz svg{width:100%;height:auto;display:block;overflow:visible}
+.size-viz .dim{font-family:var(--mono);font-size:13px;fill:var(--yellow)}
+.size-viz .dim2{font-family:var(--mono);font-size:12px;fill:var(--muted)}
+.dl{stroke:var(--yellow);stroke-width:1.5;stroke-dasharray:var(--len);stroke-dashoffset:var(--len);transition:stroke-dashoffset 1.4s var(--ease)}
+.size-viz.in .dl{stroke-dashoffset:0}
+#tv{transition:all .8s var(--ease);transform-box:fill-box}
+.dimgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:30px}
+.dimgrid div{border:1px solid var(--line);border-radius:16px;padding:18px;background:rgba(255,255,255,.02)}
+.dimgrid b{display:block;font-size:24px;letter-spacing:-.02em}
+.dimgrid span{font-family:var(--mono);font-size:12px;color:var(--muted)}
+
+/* specs */
+#specs{background:var(--paper);color:var(--ink)}
+#specs .eyebrow{color:var(--blue)}
+#specs .sub{color:var(--grey)}
+.spec-bar{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;margin-bottom:26px}
+.spec-cats{display:flex;flex-wrap:wrap;gap:8px}
+.spec-cats button{border:1px solid #d6dbe1;background:#fff;border-radius:999px;padding:9px 16px;font-weight:700;font-size:14px;cursor:pointer;color:#455565;transition:all .2s}
+.spec-cats button.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+.search{position:relative}
+.search input{border:1px solid #d6dbe1;background:#fff;border-radius:999px;padding:11px 18px 11px 42px;width:260px;font-size:14px;color:var(--ink)}
+.search input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(9,81,137,.12)}
+.search svg{position:absolute;left:15px;top:50%;transform:translateY(-50%);width:16px;height:16px;stroke:var(--grey);fill:none;stroke-width:2}
+.spec-table{display:grid;grid-template-columns:repeat(2,1fr);gap:0 40px;background:#fff;border-radius:24px;padding:12px 32px;box-shadow:0 20px 60px rgba(0,48,92,.08)}
+.row{display:flex;justify-content:space-between;gap:20px;padding:15px 0;border-bottom:1px solid #edf0f3;transition:background .2s}
+.row:hover{background:linear-gradient(90deg,transparent,rgba(252,200,44,.12),transparent)}
+.row .k{color:var(--grey);font-size:14.5px}
+.row .v{font-family:var(--mono);font-weight:600;font-size:14px;text-align:right;color:var(--navy)}
+.row .v mark{background:rgba(252,200,44,.6);color:inherit;border-radius:3px}
+.row.hide{display:none}
+.spec-empty{display:none;padding:30px;text-align:center;color:var(--grey);grid-column:1/-1}
+.spec-foot{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px;align-items:center}
+.btn-blue{background:var(--blue);color:#fff}.btn-blue:hover{background:var(--navy)}
+.btn-line{background:#fff;color:var(--navy);border:1px solid #d6dbe1}
+.btn-line:hover{border-color:var(--blue)}
+#specs .note{color:#8a95a1}
+
+/* services */
+#services{background:#fff;color:var(--ink)}
+#services .eyebrow{color:var(--blue)}
+#services .sub{color:var(--grey)}
+#services h2 .y{background:linear-gradient(transparent 62%,var(--yellow) 62%,var(--yellow) 92%,transparent 92%)}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;position:relative;counter-reset:s}
+.steps::before{content:"";position:absolute;left:5%;right:5%;top:34px;height:2px;background:#e3e8ee}
+.steps .track{position:absolute;left:5%;top:34px;height:2px;width:0;background:linear-gradient(90deg,var(--blue),var(--yellow));transition:width 2s var(--ease)}
+.steps.in .track{width:90%}
+.step{position:relative;text-align:left;padding-top:6px}
+.step .dot{width:58px;height:58px;border-radius:50%;background:#fff;border:2px solid #e3e8ee;display:grid;place-items:center;font-family:var(--mono);font-weight:600;color:var(--blue);position:relative;z-index:1;margin-bottom:20px;transition:all .5s var(--ease)}
+.steps.in .step .dot{border-color:var(--blue);box-shadow:0 0 0 6px rgba(9,81,137,.08)}
+.step:hover .dot{background:var(--yellow);border-color:var(--yellow);color:var(--navy-900);transform:scale(1.08)}
+.step h4{font-size:18px;letter-spacing:-.01em;margin-bottom:8px;color:var(--navy)}
+.step p{font-size:14.5px;color:#5b6773}
+.perks{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:70px}
+.perk{border-radius:20px;padding:26px;background:var(--paper);transition:transform .3s var(--ease),box-shadow .3s}
+.perk:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,48,92,.1)}
+.perk b{display:block;font-size:17px;color:var(--navy);margin:14px 0 6px}
+.perk p{font-size:14px;color:#5b6773}
+.perk .pi{width:42px;height:42px;border-radius:12px;background:var(--blue);display:grid;place-items:center}
+.perk .pi svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* cta */
+#offer{background:radial-gradient(900px 500px at 85% 20%,rgba(31,130,214,.4),transparent 60%),radial-gradient(700px 400px at 0% 100%,rgba(252,200,44,.12),transparent 60%),var(--navy-950);overflow:hidden}
+.offer{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.offer .contact{margin-top:36px;display:grid;gap:14px}
+.offer .contact a{display:flex;align-items:center;gap:16px;padding:18px 20px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.03);transition:border-color .25s,background .25s}
+.offer .contact a:hover{border-color:rgba(252,200,44,.5);background:rgba(252,200,44,.05)}
+.offer .contact svg{width:22px;height:22px;stroke:var(--yellow);fill:none;stroke-width:2;flex-shrink:0}
+.offer .contact small{display:block;font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.1em}
+.offer .contact b{font-size:18px}
+form{border-radius:28px;padding:36px;background:linear-gradient(180deg,rgba(9,81,137,.25),rgba(0,26,51,.55));border:1px solid var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);position:relative}
+form h3{font-size:24px;letter-spacing:-.02em;margin-bottom:6px}
+form > p{color:var(--muted);font-size:14px;margin-bottom:24px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.f{position:relative}
+.f.full{grid-column:1/-1}
+.f input,.f select,.f textarea{width:100%;background:rgba(0,10,20,.5);border:1px solid var(--line);border-radius:14px;padding:22px 16px 9px;font-size:15px;color:#fff;transition:border-color .2s,box-shadow .2s;appearance:none;-webkit-appearance:none}
+.f select{padding:22px 40px 9px 16px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23fcc82c' stroke-width='2'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+.f select option{background:var(--navy-900);color:#fff}
+.f textarea{min-height:96px;resize:vertical}
+.f label{position:absolute;left:17px;top:15px;font-size:15px;color:var(--muted);pointer-events:none;transition:all .2s var(--ease)}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--yellow);box-shadow:0 0 0 4px rgba(252,200,44,.12)}
+.f input:focus+label,.f input:not(:placeholder-shown)+label,.f textarea:focus+label,.f textarea:not(:placeholder-shown)+label,.f select+label{top:7px;font-size:11px;color:var(--yellow);font-family:var(--mono);letter-spacing:.06em}
+.qty{display:flex;align-items:center;justify-content:space-between;border:1px solid var(--line);border-radius:14px;padding:8px 8px 8px 16px;background:rgba(0,10,20,.5)}
+.qty span{font-size:15px;color:var(--muted)}
+.qty div{display:flex;align-items:center;gap:6px}
+.qty button{width:36px;height:36px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.05);cursor:pointer;font-size:18px;font-weight:700}
+.qty button:hover{border-color:var(--yellow);color:var(--yellow)}
+.qty output{min-width:34px;text-align:center;font-family:var(--mono);font-weight:600;font-size:18px}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);margin:18px 0 22px;cursor:pointer}
+.consent input{accent-color:var(--yellow);width:18px;height:18px;margin-top:1px;flex-shrink:0}
+form .btn{width:100%;justify-content:center;font-size:16px;padding:17px}
+.ok{position:absolute;inset:0;border-radius:28px;background:rgba(0,15,31,.96);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:36px;opacity:0;pointer-events:none;transition:opacity .4s}
+.ok.show{opacity:1;pointer-events:auto}
+.ok .check{width:84px;height:84px;margin-bottom:22px}
+.ok .check circle{stroke:var(--yellow);stroke-width:3;fill:none;stroke-dasharray:240;stroke-dashoffset:240}
+.ok .check path{stroke:var(--yellow);stroke-width:4;fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:60;stroke-dashoffset:60}
+.ok.show .check circle{animation:draw .7s var(--ease) forwards}
+.ok.show .check path{animation:draw .5s .5s var(--ease) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.ok h3{font-size:26px;margin-bottom:10px}
+.ok p{color:var(--muted);max-width:360px;margin-bottom:20px}
+
+footer{background:#000a14;border-top:1px solid var(--line);padding:56px 0 36px;font-size:14px;color:var(--muted)}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+.foot h5{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:#fff;margin-bottom:14px;text-transform:uppercase}
+.foot ul{list-style:none;display:grid;gap:8px}
+.foot a:hover{color:var(--yellow)}
+.legal{margin-top:44px;padding-top:24px;border-top:1px solid var(--line);font-size:12px;line-height:1.7;color:#6c829a}
+
+/* mobile sticky cta */
+.mcta{display:none}
+
+/* responsive */
+@media (max-width:1100px){
+  .nav ul{display:none}
+  .phone{display:none}
+  .stats{grid-template-columns:repeat(3,1fr)}
+  .steps{grid-template-columns:repeat(3,1fr);row-gap:36px}
+  .steps::before,.steps .track{display:none}
+  .perks{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:900px){
+  .sec{padding:84px 0}
+  .hero-grid,.lab,.compare-grid,.orbit,.size,.offer,.case{grid-template-columns:1fr}
+  .stage{height:56vh;order:-1;margin-top:10px}
+  .chip{font-size:10px;padding:8px 10px}.chip b{font-size:17px}
+  .cards{grid-template-columns:1fr}
+  .feat{grid-template-columns:1fr}
+  .tabs{position:static;flex-direction:row;overflow-x:auto;scroll-snap-type:x mandatory;gap:8px;padding-bottom:6px;scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{flex:0 0 auto;scroll-snap-align:start;padding:12px 16px;border-color:var(--line)}
+  .tab .d{display:none}
+  .tab .t{font-size:15px}
+  .viewer{aspect-ratio:4/3}
+  .viewer .hud{padding:40px 18px 16px}
+  .case-img{min-height:300px}
+  .case-txt{padding:32px 26px}
+  .spec-table{grid-template-columns:1fr;padding:8px 20px}
+  .search input{width:100%}
+  .search{width:100%}
+  .foot{grid-template-columns:1fr}
+  .mcta{display:flex;position:fixed;left:16px;right:16px;bottom:16px;z-index:90;justify-content:center;transform:translateY(140%);transition:transform .4s var(--ease)}
+  .mcta.show{transform:none}
+  .mcta .btn{width:100%;justify-content:center}
+  .burger{display:block}
+  .nav-cta .btn{display:none}
+  header.open ul{display:flex;position:absolute;top:76px;left:16px;right:16px;flex-direction:column;background:rgba(0,15,31,.97);border:1px solid var(--line);border-radius:18px;padding:12px}
+  header.open ul a{padding:14px 16px;font-size:16px}
+  .scroll-hint{display:none}
+}
+@media (max-width:560px){
+  .wrap{padding:0 16px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:1fr}
+  .perks{grid-template-columns:1fr}
+  .fields{grid-template-columns:1fr}
+  form{padding:24px 18px}
+  .logo small{display:none}
+  .compare-box{margin-top:64px}
+  .chip.c2,.chip.c4{right:-2%}
+  .chip.c1,.chip.c3{left:-2%}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .rv{opacity:1;transform:none}
+  h1 .line span{transform:none}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div id="glow" aria-hidden="true"></div>
+
+<header id="top">
+  <div class="wrap nav">
+    <a class="logo" href="#hero" aria-label="Office 1 – начало">
+      <span class="logo-chip"><img src="assets/office1-logo.webp" alt="Office 1" width="400" height="125"></span>
+      <small>Business<br>Solutions</small>
+    </a>
+    <ul id="menu">
+      <li><a href="#lab">3D ефект</a></li>
+      <li><a href="#features">Технология</a></li>
+      <li><a href="#cases">Приложения</a></li>
+      <li><a href="#view">Продукт</a></li>
+      <li><a href="#specs">Спецификации</a></li>
+      <li><a href="#services">Услуги</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="phone" href="tel:+35929760006">тел. <b>02 976 00 06</b></a>
+      <a class="btn btn-y btn-sm" href="#offer">Поискай оферта</a>
+    </div>
+    <button class="burger" aria-label="Меню" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section id="hero">
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker"><i></i><span id="scramble">SAMSUNG SPATIAL SIGNAGE · SMHX-P</span></div>
+      <h1>
+        <span class="line"><span>Рекламата,</span></span>
+        <span class="line"><span>която излиза</span></span>
+        <span class="line"><span class="grad">от екрана.</span></span>
+      </h1>
+      <p class="lead">85-инчов <b>3D дисплей без очила</b>, който превръща всеки продукт във витрина. Спира погледа, задържа вниманието и продава – с доставка, монтаж и поддръжка от <b>Office 1</b>.</p>
+      <div class="hero-actions">
+        <a class="btn btn-y" href="#offer">Поискай оферта
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="#lab">Изпробвай 3D ефекта</a>
+      </div>
+      <div class="partner">
+        <div class="seal">1</div>
+        <p><b>Office 1 – официален дистрибутор на Samsung за България.</b><br>Консултация, демонстрация и професионален монтаж от един партньор.</p>
+      </div>
+    </div>
+    <div class="stage" id="stage">
+      <div class="stage-inner" id="stageInner">
+        <div class="stage-halo"></div>
+        <img class="stage-img" src="assets/gallery-7.png" alt="Samsung Spatial Signage SMHX-P – изглед отпред" width="1300" height="1038" fetchpriority="high">
+        <div class="scan"></div>
+        <div class="chip c1"><b>85″</b><span>// 4K UHD</span></div>
+        <div class="chip c2"><b>3D</b><span>// без очила</span></div>
+        <div class="chip c3"><b>52 мм</b><span>// UltraThin</span></div>
+        <div class="chip c4"><b>24/7</b><span>// режим</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL<i></i></div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>VIRTUAL 3D DISPLAY</span><span>TRUE 3D ENHANCER</span><span>4K UHD · 3840×2160</span><span>QUANTUM PROCESSOR 4K</span><span>ANTI-GLARE</span><span>SAMSUNG VXT</span><span>SMARTTHINGS PRO</span><span>TIZEN 7.0</span><span>24/7 OPERATION</span>
+    <span>VIRTUAL 3D DISPLAY</span><span>TRUE 3D ENHANCER</span><span>4K UHD · 3840×2160</span><span>QUANTUM PROCESSOR 4K</span><span>ANTI-GLARE</span><span>SAMSUNG VXT</span><span>SMARTTHINGS PRO</span><span>TIZEN 7.0</span><span>24/7 OPERATION</span>
+  </div>
+</div>
+
+<!-- STATS + WHY -->
+<section class="sec" id="why">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat rv"><div class="v"><span data-count="85">0</span><small>″</small></div><div class="l">диагонал, портрет</div></div>
+      <div class="stat rv" data-d="1"><div class="v"><span data-count="4" data-suffix="K">0</span></div><div class="l">3840 × 2160 UHD</div></div>
+      <div class="stat rv" data-d="2"><div class="v"><span data-count="52">0</span><small>мм</small></div><div class="l">дълбочина на корпуса</div></div>
+      <div class="stat rv" data-d="3"><div class="v"><span data-count="500">0</span><small>nit</small></div><div class="l">яркост, anti-glare</div></div>
+      <div class="stat rv" data-d="4"><div class="v"><span data-count="24">0</span><small>/7</small></div><div class="l">непрекъсната работа</div></div>
+      <div class="stat rv" data-d="5"><div class="v"><span data-count="178">0</span><small>°</small></div><div class="l">ъгъл на видимост</div></div>
+    </div>
+
+    <div class="head rv" style="margin-top:110px">
+      <div class="eyebrow">Защо Spatial Signage</div>
+      <h2>Когато всички екрани изглеждат еднакво, <span class="grad">дълбочината печели.</span></h2>
+      <p class="sub">Клиентите ви минават покрай десетки плоски дисплеи всеки ден. SMHX-P показва продукта ви така, сякаш стои в реална витрина – и го прави без очила, проектори и сложни инсталации.</p>
+    </div>
+    <div class="cards">
+      <article class="card rv">
+        <span class="num">01</span>
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg></div>
+        <h3>Спира погледа</h3>
+        <p>Патентованата 3D плоча на Samsung придава реална дълбочина на 2D съдържание. Продуктът „изскача“ от рамката и привлича внимание от разстояние.</p>
+      </article>
+      <article class="card rv" data-d="1">
+        <span class="num">02</span>
+        <div class="ico"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="1.5"/><path d="M3 6v12M21 6v12"/></svg></div>
+        <h3>Монтира се като обикновен дисплей</h3>
+        <p>Само 52 мм дълбочина и стандартен VESA 400×600 монтаж. Без тежки конструкции, без промени в интериора – на стена, в колона или във витрина.</p>
+      </article>
+      <article class="card rv" data-d="2">
+        <span class="num">03</span>
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M7 18a5 5 0 1 1 1-9.9A6 6 0 0 1 19.5 10 4 4 0 0 1 18 18z"/><path d="M12 13v6M9.5 16.5L12 19l2.5-2.5"/></svg></div>
+        <h3>Управлявате всичко от облака</h3>
+        <p>Samsung VXT централизира съдържание, графици и състояние на екраните във всички ваши обекти. Една кампания – пусната навсякъде с един клик.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- DEPTH LAB -->
+<section class="sec" id="lab">
+  <div class="wrap">
+    <div class="lab">
+      <div class="rv">
+        <div class="eyebrow">Интерактивна демонстрация</div>
+        <h2>Пробвайте 3D ефекта. <span class="grad">Тук и сега.</span></h2>
+        <p class="sub">Движете мишката (или пръста) върху дисплея. Обектите са на различна дълбочина в „стаята“ на екрана – точно както Virtual 3D технологията изгражда пространство зад стъклото.</p>
+        <div class="controls">
+          <div class="seg" id="modeSeg" role="tablist" aria-label="Режим на показване">
+            <span class="pill"></span>
+            <button class="on" data-mode="3d" role="tab" aria-selected="true">Spatial 3D</button>
+            <button data-mode="2d" role="tab" aria-selected="false">Обикновен 2D</button>
+          </div>
+          <div class="ctl">
+            <label for="depth">ДЪЛБОЧИНА <output id="depthOut">70%</output></label>
+            <input type="range" id="depth" min="0" max="100" value="70" style="--p:70%">
+          </div>
+          <div>
+            <div class="hint" style="margin-bottom:12px">СЦЕНАРИЙ</div>
+            <div class="scene-pick" id="scenePick">
+              <button class="tag on" data-scene="promo">Промо кампания</button>
+              <button class="tag" data-scene="brand">Бранд витрина</button>
+              <button class="tag" data-scene="product">Нов продукт</button>
+            </div>
+          </div>
+          <div class="hint"><i></i> Наклонете дисплея с курсора</div>
+        </div>
+      </div>
+      <div class="panel-wrap rv" data-d="2" id="panelWrap">
+        <div class="panel" id="panel">
+          <div class="screen" id="screen">
+            <span class="mode-label" id="modeLabel">SPATIAL 3D</span>
+            <svg class="room" viewBox="0 0 100 174" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="gTop" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cdd3da"/><stop offset="1" stop-color="#e8ebef"/></linearGradient>
+                <linearGradient id="gBot" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#d3d8de"/><stop offset="1" stop-color="#eef0f3"/></linearGradient>
+                <linearGradient id="gL" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d4d9df"/><stop offset="1" stop-color="#eceef1"/></linearGradient>
+                <linearGradient id="gR" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#d4d9df"/><stop offset="1" stop-color="#eceef1"/></linearGradient>
+              </defs>
+              <g class="wall">
+                <polygon id="wT" fill="url(#gTop)"/><polygon id="wB" fill="url(#gBot)"/>
+                <polygon id="wL" fill="url(#gL)"/><polygon id="wR" fill="url(#gR)"/>
+                <rect id="wBack" fill="#f3f5f7"/>
+                <g stroke="#b9c1ca" stroke-width=".35" fill="none" id="edges"></g>
+              </g>
+            </svg>
+            <div class="objs" id="objs">
+              <div class="scene on" data-scene="promo">
+                <div class="obj" data-z="120" data-x="-28" data-y="-30"><div class="sphere"></div><div class="sh" style="top:150%"></div></div>
+                <div class="obj" data-z="40" data-x="0" data-y="0"><div class="promo">-30%<small>САМО ТАЗИ СЕДМИЦА</small></div></div>
+                <div class="obj" data-z="160" data-x="26" data-y="26"><div class="sphere b" style="width:60px;height:60px"></div><div class="sh" style="top:150%"></div></div>
+                <div class="obj" data-z="80" data-x="18" data-y="-34"><div class="badge-3d">НОВО</div></div>
+              </div>
+              <div class="scene" data-scene="brand">
+                <div class="obj" data-z="20" data-x="0" data-y="-2"><div class="big1">1</div></div>
+                <div class="obj" data-z="130" data-x="0" data-y="26"><div class="logo-plate"><img src="assets/office1-logo.webp" alt="" width="400" height="125"></div><div class="sh" style="top:140%"></div></div>
+                <div class="obj" data-z="170" data-x="-26" data-y="-30"><div class="cube"><div></div><div></div><div></div><div></div><div></div><div></div></div></div>
+                <div class="obj" data-z="90" data-x="28" data-y="-18"><div class="sphere" style="width:44px;height:44px"></div></div>
+              </div>
+              <div class="scene" data-scene="product">
+                <div class="obj" data-z="150" data-x="0" data-y="-6"><svg class="shoe" viewBox="0 0 200 110" aria-hidden="true"><defs><linearGradient id="sh1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f82d6"/><stop offset="1" stop-color="#00305c"/></linearGradient></defs><path d="M8 78c0-14 6-30 18-40 8-7 22-8 30-2 10 8 24 16 44 18 26 3 54 8 74 20 10 6 18 14 18 22 0 6-4 8-10 8H22C12 104 8 94 8 78z" fill="url(#sh1)"/><path d="M8 88h184v8c0 6-4 8-10 8H22C12 104 8 98 8 88z" fill="#fff"/><path d="M62 42l12 22M76 48l10 18M90 52l8 16" stroke="#fcc82c" stroke-width="5" stroke-linecap="round"/><path d="M120 66c20 2 40 6 56 14" stroke="#fcc82c" stroke-width="6" stroke-linecap="round" fill="none"/></svg><div class="sh" style="top:115%"></div></div>
+                <div class="obj" data-z="60" data-x="0" data-y="-32"><div class="badge-3d" style="background:var(--yellow);color:var(--navy-900)">ЛИМИТИРАНА СЕРИЯ</div></div>
+                <div class="obj" data-z="100" data-x="0" data-y="28"><div class="promo" style="font-size:42px;color:var(--navy);text-shadow:0 2px 0 #001a33,0 10px 20px rgba(0,48,92,.3)">189 лв.<small>В МАГАЗИНА СЕГА</small></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- compare -->
+    <div class="compare-box">
+      <div class="compare-head rv">
+        <h3>Плъзнете, за да видите разликата, която <span class="grad">технологията</span> прави.</h3>
+        <div class="seg" id="cmpSeg" role="tablist" aria-label="Сравнение">
+          <span class="pill"></span>
+          <button class="on" data-img="assets/f-enhancer.jpg" data-l="STANDARD" data-r="TRUE 3D ENHANCER" data-i="0">True 3D Enhancer</button>
+          <button data-img="assets/f-antiglare.jpg" data-l="ОТБЛЯСЪК" data-r="ANTI-GLARE" data-i="1">Anti-glare</button>
+        </div>
+      </div>
+      <div class="compare-grid">
+        <div class="compare rv" id="compare" role="slider" tabindex="0" aria-label="Сравнение преди и след" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+          <div class="layer before" style="background-image:url(assets/f-enhancer.jpg)"></div>
+          <div class="layer after" style="background-image:url(assets/f-enhancer.jpg)"></div>
+          <span class="lbl l" id="cmpL">STANDARD</span><span class="lbl r" id="cmpR">TRUE 3D ENHANCER</span>
+          <div class="bar"><div class="knob"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></div></div>
+        </div>
+        <div class="compare-copy rv fade-swap" data-d="2" id="cmpCopy">
+          <p>True 3D Enhancer автоматично добавя фини сенки и дълбочина към обектите, за да засили усещането за триизмерност – без да преработвате съдържанието си.</p>
+          <ul>
+            <li>Работи с вашите съществуващи 2D визии и видеа</li>
+            <li>Обектът „увисва“ във въздуха с реалистична сянка</li>
+            <li>По-силен ефект = по-дълго задържане на погледа</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="sec" id="features">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="eyebrow">Технология</div>
+      <h2>Инженеринг от Samsung, <span class="grad">създаден за витрината.</span></h2>
+    </div>
+    <div class="feat" id="feat">
+      <div class="tabs" role="tablist">
+        <button class="tab on" data-i="0" role="tab"><span class="t"><em>01</em>Virtual 3D Display</span><span class="d"><p>Патентована 3D плоча пред панела изгражда усещане за пространство – съдържанието изглежда почти осезаемо.</p></span><span class="bar"></span></button>
+        <button class="tab" data-i="1" role="tab"><span class="t"><em>02</em>Quantum Processor 4K</span><span class="d"><p>Мащабира съдържание с по-ниска резолюция до UHD за детайлна, наситена картина от всяко разстояние.</p></span><span class="bar"></span></button>
+        <button class="tab" data-i="2" role="tab"><span class="t"><em>03</em>UltraThin Design · 52 мм</span><span class="d"><p>Ултратънък профил, който се монтира толкова лесно, колкото стандартен дисплей – в ритейл, лоби или галерия.</p></span><span class="bar"></span></button>
+        <button class="tab" data-i="3" role="tab"><span class="t"><em>04</em>Anti-glare панел</span><span class="d"><p>Оптимизирано матово покритие намалява отблясъците от осветление и слънце – съдържанието остава ясно и в светли пространства.</p></span><span class="bar"></span></button>
+        <button class="tab" data-i="4" role="tab"><span class="t"><em>05</em>Samsung VXT</span><span class="d"><p>Облачна платформа за съдържание и отдалечено управление на устройствата – настройки, графици и диагностика от едно място.*</p></span><span class="bar"></span></button>
+        <button class="tab" data-i="5" role="tab"><span class="t"><em>06</em>SmartThings Pro</span><span class="d"><p>IoT свързаност: дисплеят комуникира с осветление, климат и други смарт устройства в обекта – всичко от една платформа.*</p></span><span class="bar"></span></button>
+      </div>
+      <div class="rv" data-d="1">
+        <div class="viewer" id="viewer">
+          <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+          <img class="on" src="assets/f-3d-plate.jpg" alt="3D плоча в Samsung Spatial Signage" loading="lazy" width="1440" height="850">
+          <img src="assets/f-4k.jpg" alt="4K съдържание в модна витрина" loading="lazy" width="1440" height="800">
+          <img src="assets/f-ultrathin.jpg" alt="52 мм UltraThin дизайн в спортен магазин" loading="lazy" width="1440" height="800">
+          <img src="assets/f-antiglare.jpg" alt="Сравнение с и без anti-glare" loading="lazy" width="1440" height="800">
+          <img src="assets/f-vxt.jpg" alt="Samsung VXT CMS управлява мрежа от дисплеи" loading="lazy" width="1440" height="820">
+          <img src="assets/f-smartthings.jpg" alt="SmartThings Pro в музей" loading="lazy" width="1440" height="800">
+          <div class="hud"><div><div class="k mono" id="hudK">01 / 06</div><h4 id="hudT">Съдържанието оживява в пространство зад стъклото</h4></div></div>
+        </div>
+        <p class="note">* Samsung VXT и SmartThings Pro се закупуват отделно; наличността варира според региона. Изживяването зависи от вида на съдържанието.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section class="sec" id="cases">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="eyebrow">Приложения</div>
+      <h2>Един дисплей. <span class="grad">Безброй витрини.</span></h2>
+      <p class="sub">Изберете индустрия и вижте как Spatial Signage работи за бизнеса ви.</p>
+    </div>
+    <div class="case-tabs rv" id="caseTabs"></div>
+    <div class="case rv" id="case">
+      <div class="case-img"><img id="caseImg" src="assets/f-retail-window.jpg" alt="" loading="lazy"></div>
+      <div class="case-txt fade-swap" id="caseTxt"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 360 VIEW -->
+<section class="sec" id="view">
+  <div class="wrap">
+    <div class="orbit">
+      <div class="rv">
+        <div class="orbit-stage" id="orbit" tabindex="0" aria-label="Продукт – завъртете с плъзгане или стрелки">
+          <span class="drag">⟷ ПЛЪЗНЕТЕ ЗА ЗАВЪРТАНЕ</span><span class="deg" id="deg">0°</span>
+          <div class="ring"></div>
+          <img class="on" src="assets/gallery-7.png" alt="Изглед отпред" width="1300" height="1038" loading="lazy">
+          <img src="assets/gallery-3.png" alt="Изглед под ъгъл" width="1300" height="1038" loading="lazy">
+          <img src="assets/gallery-2.png" alt="Изглед отстрани – 52 мм профил" width="1300" height="1038" loading="lazy">
+          <img src="assets/gallery-6.png" alt="Изглед отзад под ъгъл" width="1300" height="1038" loading="lazy">
+          <img src="assets/gallery-1.png" alt="Изглед отзад" width="1300" height="1038" loading="lazy">
+        </div>
+      </div>
+      <div class="rv" data-d="2">
+        <div class="eyebrow">Продуктът отблизо</div>
+        <h2>Завъртете го. <span class="grad">Разгледайте го.</span></h2>
+        <p class="sub">Минималистична черна рамка, ултратънък корпус и всички професионални входове – скрити зад капак за чиста инсталация.</p>
+        <div class="ctl" style="margin-top:28px">
+          <label for="rot">ЪГЪЛ НА ГЛЕДАНЕ <output id="rotOut">0°</output></label>
+          <input type="range" id="rot" min="0" max="4" step="1" value="0" style="--p:0%">
+        </div>
+        <div class="thumbs" id="thumbs">
+          <button data-src="assets/gallery-3.png" aria-label="Увеличи: изглед под ъгъл"><img src="assets/gallery-3.png" alt="" loading="lazy"></button>
+          <button data-src="assets/gallery-2.png" aria-label="Увеличи: профил"><img src="assets/gallery-2.png" alt="" loading="lazy"></button>
+          <button class="ports" data-src="assets/gallery-5.png" aria-label="Увеличи: входове"><img src="assets/gallery-5.png" alt="" loading="lazy"></button>
+          <button class="ports" data-src="assets/gallery-4.png" aria-label="Увеличи: панел с входове"><img src="assets/gallery-4.png" alt="" loading="lazy"></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- size -->
+    <div class="size" style="margin-top:120px">
+      <div class="rv">
+        <div class="eyebrow">Мащаб</div>
+        <h2>По-висок от <span class="grad">вашите клиенти.</span></h2>
+        <p class="sub">В портретна ориентация SMHX-P е почти 2 метра – продуктите ви се показват в реален размер, на нивото на очите.</p>
+        <div class="seg" id="oriSeg" style="margin-top:28px">
+          <span class="pill"></span>
+          <button class="on" data-o="p">Портрет</button>
+          <button data-o="l">Пейзаж</button>
+        </div>
+        <div class="dimgrid">
+          <div><b id="dimH">1920 мм</b><span>височина</span></div>
+          <div><b id="dimW">1101 мм</b><span>ширина</span></div>
+          <div><b>52 мм</b><span>дълбочина</span></div>
+          <div><b>49 кг</b><span>тегло</span></div>
+        </div>
+      </div>
+      <div class="size-viz rv" data-d="2" id="sizeViz">
+        <svg viewBox="0 0 420 300" aria-label="Мащабно сравнение на дисплея с човек">
+          <defs><pattern id="gridp" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0v20" fill="none" stroke="rgba(159,196,235,.08)"/></pattern>
+            <linearGradient id="scr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f82d6"/><stop offset=".6" stop-color="#095189"/><stop offset="1" stop-color="#00305c"/></linearGradient></defs>
+          <rect width="420" height="300" fill="url(#gridp)"/>
+          <line x1="0" y1="270" x2="420" y2="270" stroke="rgba(159,196,235,.35)"/>
+          <!-- display: scale 1px = 8mm -> 1920mm = 240px, 1101mm = 138px -->
+          <g id="tv">
+            <rect id="tvR" x="150" y="30" width="138" height="240" rx="3" fill="#0b0b0b" stroke="#2c3a48"/>
+            <rect id="tvS" x="154" y="34" width="130" height="232" fill="url(#scr)" opacity=".85"/>
+            <text id="tvT" x="219" y="155" text-anchor="middle" fill="#fcc82c" font-family="JetBrains Mono" font-size="14" font-weight="600">85″</text>
+          </g>
+          <!-- person 175cm = ~219px -->
+          <g fill="rgba(231,238,247,.85)">
+            <circle cx="75" cy="64" r="14"/>
+            <path d="M58 84h34c6 0 10 4 10 10v62c0 4-3 6-6 6h-4v104h-14v-92h-6v92H54V162h-4c-3 0-6-2-6-6V94c0-6 4-10 10-10z"/>
+          </g>
+          <text x="75" y="290" text-anchor="middle" class="dim2">175 см</text>
+          <path class="dl" style="--len:240" id="dlH" d="M310 30V270"/>
+          <path class="dl" style="--len:12" d="M304 30h12M304 270h12"/>
+          <text id="tH" x="322" y="154" class="dim">1920 мм</text>
+          <path class="dl" style="--len:138" id="dlW" d="M150 18H288"/>
+          <text id="tW" x="219" y="12" text-anchor="middle" class="dim">1101 мм</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECS -->
+<section class="sec" id="specs">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="eyebrow">Технически данни · LH85SMHPBGCXEN</div>
+      <h2>Всички спецификации. Без звездички.</h2>
+      <p class="sub">Филтрирайте по категория или потърсете конкретен параметър.</p>
+    </div>
+    <div class="spec-bar rv">
+      <div class="spec-cats" id="specCats"></div>
+      <label class="search"><span class="sr">Търсене в спецификациите</span>
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+        <input id="specQ" type="search" placeholder="напр. HDMI, nit, тегло…">
+      </label>
+    </div>
+    <div class="spec-table rv" id="specTable"><div class="spec-empty" id="specEmpty">Няма намерени параметри.</div></div>
+    <div class="spec-foot rv">
+      <a class="btn btn-blue" href="https://images.samsung.com/is/content/samsung/p6/common/energylabel/common-energylabel-lh85smhpbgcxen-productfiche.pdf" target="_blank" rel="noopener">Продуктов фиш (PDF)</a>
+      <a class="btn btn-line" href="https://www.samsung.com/bg/business/smart-signage/others/spatial-signage-smhx-p-lh85smhpbgcxen/" target="_blank" rel="noopener">Страница на Samsung ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec" id="services">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="eyebrow">Защо с Office 1</div>
+      <h2>От идеята до първия клиент пред екрана – <span class="y">с един партньор.</span></h2>
+      <p class="sub">Не продаваме просто дисплей. Поемаме целия проект, за да започнете да печелите внимание от първия ден.</p>
+    </div>
+    <div class="steps" id="steps">
+      <div class="track"></div>
+      <div class="step rv"><div class="dot">01</div><h4>Консултация</h4><p>Анализ на обекта, трафика и целите ви. Препоръка за брой и позиция на екраните.</p></div>
+      <div class="step rv" data-d="1"><div class="dot">02</div><h4>Демонстрация</h4><p>Вижте 3D ефекта на живо с вашето съдържание, преди да вземете решение.</p></div>
+      <div class="step rv" data-d="2"><div class="dot">03</div><h4>Доставка и монтаж</h4><p>Професионална инсталация на стена, стойка или във витрина – чисто и в срок.</p></div>
+      <div class="step rv" data-d="3"><div class="dot">04</div><h4>Съдържание и VXT</h4><p>Настройка на платформата, графици и помощ при подготовка на 3D-готови визии.</p></div>
+      <div class="step rv" data-d="4"><div class="dot">05</div><h4>Поддръжка</h4><p>Гаранционно и следгаранционно обслужване и отдалечена диагностика.</p></div>
+    </div>
+    <div class="perks">
+      <div class="perk rv"><div class="pi"><svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 .9-4.5 4.3 1 6.3L12 16.6 6.5 19.5l1-6.3L3 8.9 9 8z"/></svg></div><b>Официален дистрибутор</b><p>Оригинална продукция Samsung с пълна гаранция.</p></div>
+      <div class="perk rv" data-d="1"><div class="pi"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg></div><b>Корпоративно обслужване</b><p>Личен акаунт мениджър и индивидуални условия.</p></div>
+      <div class="perk rv" data-d="2"><div class="pi"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="13" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M2 13h20"/></svg></div><b>Цялостни решения</b><p>Техника, мебели и консумативи за целия ви обект.</p></div>
+      <div class="perk rv" data-d="3"><div class="pi"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div><b>Реализирани проекти</b><p>Опит с бизнес клиенти в цялата страна.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFER -->
+<section class="sec" id="offer">
+  <div class="wrap offer">
+    <div class="rv">
+      <div class="eyebrow">Индивидуална оферта</div>
+      <h2>Готови да спрете <span class="grad">трафика пред витрината?</span></h2>
+      <p class="sub">Разкажете ни за обекта си – ще се свържем с вас с предложение, демонстрация и условия за бизнес клиенти.</p>
+      <div class="contact">
+        <a href="tel:+35929760006"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span><small>ОБАДЕТЕ СЕ</small><b>02 976 00 06</b></span></a>
+        <a href="https://office1.bg/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg><span><small>ОНЛАЙН</small><b>office1.bg</b></span></a>
+      </div>
+    </div>
+    <form class="rv" data-d="2" id="leadForm" novalidate>
+      <h3>Заявка за оферта</h3>
+      <p>Отговаряме в рамките на един работен ден.</p>
+      <div class="fields">
+        <div class="f"><input id="fn" name="name" placeholder=" " required autocomplete="name"><label for="fn">Име и фамилия</label></div>
+        <div class="f"><input id="fc" name="company" placeholder=" " required autocomplete="organization"><label for="fc">Фирма</label></div>
+        <div class="f"><input id="fe" name="email" type="email" placeholder=" " required autocomplete="email"><label for="fe">Имейл</label></div>
+        <div class="f"><input id="fp" name="phone" type="tel" placeholder=" " autocomplete="tel"><label for="fp">Телефон</label></div>
+        <div class="f full"><select id="fi" name="industry"><option>Ритейл и мода</option><option>HoReCa</option><option>Спорт и шоуруми</option><option>Музеи и галерии</option><option>Банки и офиси</option><option>Търговски центрове</option><option>Друго</option></select><label for="fi">Индустрия</label></div>
+        <div class="f full"><div class="qty"><span>Брой дисплеи</span><div><button type="button" data-q="-1" aria-label="По-малко">−</button><output id="qty">1</output><button type="button" data-q="1" aria-label="Повече">+</button></div></div></div>
+        <div class="f full"><textarea id="fm" name="msg" placeholder=" "></textarea><label for="fm">Разкажете ни за обекта (по желание)</label></div>
+      </div>
+      <label class="consent"><input type="checkbox" id="fok" required> Съгласен/на съм Office 1 да се свърже с мен във връзка със заявката.</label>
+      <button class="btn btn-y" type="submit">Изпрати заявка
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <div class="ok" id="ok" role="status" aria-live="polite">
+        <svg class="check" viewBox="0 0 84 84"><circle cx="42" cy="42" r="38"/><path d="M26 43l11 11 21-23"/></svg>
+        <h3>Благодарим!</h3>
+        <p id="okMsg">Заявката е приета. Наш консултант ще се свърже с вас.</p>
+        <a class="btn btn-ghost btn-sm" href="tel:+35929760006">Или звъннете: 02 976 00 06</a>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <span class="logo-chip" style="display:inline-flex"><img src="assets/office1-logo.webp" alt="Office 1" width="400" height="125" style="height:26px;width:auto"></span>
+        <p style="margin-top:16px;max-width:360px">Всичко за офиса и бизнеса – от консумативи до професионални дисплейни решения. Официален дистрибутор на Samsung за България.</p>
+      </div>
+      <div><h5>Страница</h5><ul><li><a href="#lab">3D демонстрация</a></li><li><a href="#features">Технология</a></li><li><a href="#cases">Приложения</a></li><li><a href="#specs">Спецификации</a></li></ul></div>
+      <div><h5>Контакт</h5><ul><li><a href="tel:+35929760006">02 976 00 06</a></li><li><a href="https://office1.bg/" target="_blank" rel="noopener">office1.bg</a></li><li><a href="#offer">Заявка за оферта</a></li></ul></div>
+    </div>
+    <p class="legal">Концептуален дизайн на маркетингова страница, изготвен като предложение – не е официална страница на Office 1 или Samsung. Формата е демонстрационна и не изпраща данни. Продуктови изображения и спецификации © Samsung Electronics (samsung.com/bg). Samsung, VXT, SmartThings и Tizen са търговски марки на Samsung Electronics Co., Ltd. Office 1 и логото са собственост на съответния притежател.</p>
+  </div>
+</footer>
+
+<div class="mcta" id="mcta"><a class="btn btn-y" href="#offer">Поискай оферта</a></div>
+
+<dialog id="lb"><button aria-label="Затвори">✕</button><img alt="Увеличено изображение"></dialog>
+
+<script>
+(() => {
+'use strict';
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+/* ---------- header, progress, glow, mobile cta ---------- */
+const header = $('header'), prog = $('#progress'), glow = $('#glow'), mcta = $('#mcta');
+const onScroll = () => {
+  const y = scrollY, h = document.documentElement.scrollHeight - innerHeight;
+  header.classList.toggle('scrolled', y > 20);
+  prog.style.transform = `scaleX(${h > 0 ? y / h : 0})`;
+  const offerTop = $('#offer').getBoundingClientRect().top;
+  mcta.classList.toggle('show', y > innerHeight * .8 && offerTop > innerHeight * .6);
+};
+addEventListener('scroll', onScroll, { passive: true }); onScroll();
+if (fine) addEventListener('pointermove', e => { glow.style.left = e.clientX + 'px'; glow.style.top = e.clientY + 'px'; }, { passive: true });
+
+const burger = $('.burger');
+burger.addEventListener('click', () => { const o = header.classList.toggle('open'); burger.setAttribute('aria-expanded', o); });
+$$('#menu a').forEach(a => a.addEventListener('click', () => { header.classList.remove('open'); burger.setAttribute('aria-expanded', false); }));
+
+// active nav link
+const navLinks = $$('#menu a');
+const secObs = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+}), { rootMargin: '-45% 0px -50% 0px' });
+navLinks.forEach(a => { const s = $(a.getAttribute('href')); if (s) secObs.observe(s); });
+
+/* ---------- reveal + counters ---------- */
+const countUp = el => {
+  const end = +el.dataset.count, suf = el.dataset.suffix || '', t0 = performance.now(), dur = 1600;
+  const tick = t => { const p = Math.min((t - t0) / dur, 1), e = 1 - Math.pow(1 - p, 4);
+    el.textContent = Math.round(end * e) + suf; if (p < 1) requestAnimationFrame(tick); };
+  reduce ? el.textContent = end + suf : requestAnimationFrame(tick);
+};
+const rvObs = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  e.target.classList.add('in');
+  $$('[data-count]', e.target).forEach(countUp);
+  rvObs.unobserve(e.target);
+}), { threshold: .15 });
+$$('.rv, .steps, .size-viz').forEach(el => rvObs.observe(el));
+
+/* ---------- scramble kicker ---------- */
+const scr = $('#scramble');
+if (!reduce) {
+  const final = scr.textContent, glyphs = '01<>/[]{}#*+=ABCDEFX3D';
+  let f = 0;
+  const run = () => {
+    scr.textContent = final.split('').map((c, i) => c === ' ' || i < f / 2 ? c : glyphs[Math.random() * glyphs.length | 0]).join('');
+    if (f++ < final.length * 2) requestAnimationFrame(run); else scr.textContent = final;
+  };
+  setTimeout(run, 300);
+}
+
+/* ---------- hero canvas: perspective grid + particles ---------- */
+const cv = $('#fx'), ctx = cv.getContext('2d');
+let W, H, DPR, parts = [], heroVisible = true, t = 0;
+const resize = () => {
+  DPR = Math.min(devicePixelRatio || 1, 2);
+  W = cv.clientWidth; H = cv.clientHeight;
+  cv.width = W * DPR; cv.height = H * DPR; ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  parts = Array.from({ length: Math.min(70, W / 18 | 0) }, () => ({ x: Math.random() * W, y: Math.random() * H, r: Math.random() * 1.6 + .4, v: Math.random() * .35 + .1, y2: Math.random() < .25 }));
+};
+const draw = () => {
+  ctx.clearRect(0, 0, W, H);
+  const hz = H * .62, vx = W * .62;
+  ctx.lineWidth = 1;
+  // vertical rays
+  for (let i = -16; i <= 16; i++) {
+    const x = vx + i * W * .09;
+    ctx.strokeStyle = `rgba(31,130,214,${.18 - Math.abs(i) * .008})`;
+    ctx.beginPath(); ctx.moveTo(vx + i * 6, hz); ctx.lineTo(x, H); ctx.stroke();
+  }
+  // horizontal moving lines
+  for (let i = 0; i < 14; i++) {
+    const p = ((i + (t * .004) % 1) / 14), y = hz + Math.pow(p, 2.2) * (H - hz);
+    ctx.strokeStyle = `rgba(31,130,214,${p * .3})`;
+    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+  }
+  const g = ctx.createLinearGradient(0, hz - 40, 0, hz + 60);
+  g.addColorStop(0, 'rgba(0,15,31,1)'); g.addColorStop(1, 'rgba(0,15,31,0)');
+  ctx.fillStyle = g; ctx.fillRect(0, hz - 40, W, 100);
+  // particles
+  for (const p of parts) {
+    p.y -= p.v; if (p.y < -5) { p.y = H + 5; p.x = Math.random() * W; }
+    ctx.fillStyle = p.y2 ? 'rgba(252,200,44,.75)' : 'rgba(95,208,255,.55)';
+    ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 7); ctx.fill();
+  }
+  t++;
+};
+const loop = () => { if (heroVisible) draw(); requestAnimationFrame(loop); };
+resize(); addEventListener('resize', resize);
+new IntersectionObserver(([e]) => heroVisible = e.isIntersecting).observe($('#hero'));
+reduce ? draw() : loop();
+
+/* ---------- hero tilt ---------- */
+const stage = $('#stage'), stageInner = $('#stageInner');
+if (fine && !reduce) {
+  $('#hero').addEventListener('pointermove', e => {
+    const r = stage.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+    stageInner.style.transform = `rotateY(${x * 18}deg) rotateX(${-y * 12}deg)`;
+  });
+  $('#hero').addEventListener('pointerleave', () => stageInner.style.transform = '');
+}
+
+/* ---------- card spotlight ---------- */
+$$('.card').forEach(c => c.addEventListener('pointermove', e => {
+  const r = c.getBoundingClientRect();
+  c.style.setProperty('--mx', e.clientX - r.left + 'px'); c.style.setProperty('--my', e.clientY - r.top + 'px');
+}));
+
+/* ---------- segmented controls ---------- */
+const segPill = seg => {
+  const on = $('button.on', seg), pill = $('.pill', seg);
+  pill.style.width = on.offsetWidth + 'px'; pill.style.transform = `translateX(${on.offsetLeft - 5}px)`;
+};
+const initSeg = (seg, cb) => {
+  $$('button', seg).forEach(b => b.addEventListener('click', () => {
+    $$('button', seg).forEach(x => { x.classList.toggle('on', x === b); x.setAttribute('aria-selected', x === b); });
+    segPill(seg); cb(b);
+  }));
+  segPill(seg);
+  addEventListener('resize', () => segPill(seg));
+  document.fonts && document.fonts.ready.then(() => segPill(seg));
+};
+const setRangeFill = r => r.style.setProperty('--p', (r.value - r.min) / (r.max - r.min) * 100 + '%');
+
+/* ---------- depth lab ---------- */
+const panel = $('#panel'), screen = $('#screen'), depth = $('#depth');
+let mode3d = true, depthK = .7, rx = 0, ry = 0, tx = 0, ty = 0;
+const V = { w: 100, h: 174 };
+const room = (ox, oy) => {
+  // back wall rect, shifted opposite to view direction for parallax
+  const k = mode3d ? depthK : 0;
+  const ix = 15 + ox * 8 * k, iy = 22 + oy * 10 * k, iw = 70, ih = 130;
+  const inset = 1 - k * .22; // deeper = smaller back wall
+  const bw = iw * inset, bh = ih * inset;
+  const bx = ix + (iw - bw) / 2, by = iy + (ih - bh) / 2;
+  const P = (...a) => a.map(p => p.join(',')).join(' ');
+  const tl = [bx, by], tr = [bx + bw, by], br = [bx + bw, by + bh], bl = [bx, by + bh];
+  $('#wT').setAttribute('points', P([0, 0], [V.w, 0], tr, tl));
+  $('#wB').setAttribute('points', P([0, V.h], [V.w, V.h], br, bl));
+  $('#wL').setAttribute('points', P([0, 0], tl, bl, [0, V.h]));
+  $('#wR').setAttribute('points', P([V.w, 0], tr, br, [V.w, V.h]));
+  const back = $('#wBack'); back.setAttribute('x', bx); back.setAttribute('y', by); back.setAttribute('width', bw); back.setAttribute('height', bh);
+  $('#edges').innerHTML = `<line x1="0" y1="0" x2="${bx}" y2="${by}"/><line x1="100" y1="0" x2="${bx + bw}" y2="${by}"/><line x1="0" y1="174" x2="${bx}" y2="${by + bh}"/><line x1="100" y1="174" x2="${bx + bw}" y2="${by + bh}"/><rect x="${bx}" y="${by}" width="${bw}" height="${bh}"/>`;
+};
+const placeObjs = (ox, oy) => {
+  const sw = screen.clientWidth, sh = screen.clientHeight;
+  $$('.scene.on .obj').forEach(o => {
+    const z = +o.dataset.z * (mode3d ? depthK : 0);
+    const px = +o.dataset.x / 100 * sw, py = +o.dataset.y / 100 * sh;
+    // parallax: nearer objects move more with the viewer
+    const mx = ox * z * .22, my = oy * z * .18;
+    o.style.transform = `translate(-50%,-50%) translate3d(${px + mx}px,${py + my}px,${z * .6}px) scale(${1 + z / 900})`;
+  });
+};
+const renderLab = () => { room(-tx, -ty); placeObjs(tx, ty); };
+const labTick = () => {
+  rx += (tx - rx) * .12; ry += (ty - ry) * .12;
+  panel.style.transform = `rotateY(${rx * 14}deg) rotateX(${-ry * 10}deg)`;
+  room(-rx, -ry); placeObjs(rx, ry);
+  if (Math.abs(tx - rx) > .001 || Math.abs(ty - ry) > .001) requestAnimationFrame(labTick); else labRunning = false;
+};
+let labRunning = false;
+const kick = () => { if (!labRunning) { labRunning = true; requestAnimationFrame(labTick); } };
+const pw = $('#panelWrap');
+pw.addEventListener('pointermove', e => {
+  const r = panel.getBoundingClientRect();
+  tx = Math.max(-1, Math.min(1, ((e.clientX - r.left) / r.width - .5) * 2));
+  ty = Math.max(-1, Math.min(1, ((e.clientY - r.top) / r.height - .5) * 2));
+  kick();
+});
+pw.addEventListener('pointerleave', () => { tx = ty = 0; kick(); });
+// idle auto-sway so it looks alive before interaction
+let swayT = 0, interacted = false;
+pw.addEventListener('pointerdown', () => interacted = true);
+pw.addEventListener('pointerenter', () => interacted = true);
+if (!reduce) {
+  const labVis = { v: false };
+  new IntersectionObserver(([e]) => labVis.v = e.isIntersecting).observe(pw);
+  setInterval(() => { if (!interacted && labVis.v) { swayT += .05; tx = Math.sin(swayT) * .7; ty = Math.cos(swayT * .7) * .3; kick(); } }, 50);
+}
+initSeg($('#modeSeg'), b => {
+  mode3d = b.dataset.mode === '3d';
+  screen.classList.toggle('flat', !mode3d);
+  $('#modeLabel').textContent = mode3d ? 'SPATIAL 3D' : 'ОБИКНОВЕН 2D';
+  renderLab();
+});
+depth.addEventListener('input', () => { depthK = depth.value / 100; $('#depthOut').textContent = depth.value + '%'; setRangeFill(depth); renderLab(); });
+$$('#scenePick .tag').forEach(b => b.addEventListener('click', () => {
+  $$('#scenePick .tag').forEach(x => x.classList.toggle('on', x === b));
+  $$('.scene').forEach(s => s.classList.toggle('on', s.dataset.scene === b.dataset.scene));
+  renderLab();
+}));
+addEventListener('resize', renderLab);
+renderLab();
+
+/* ---------- compare slider ---------- */
+const cmp = $('#compare');
+const setX = p => { p = Math.max(0, Math.min(100, p)); cmp.style.setProperty('--x', p + '%'); cmp.setAttribute('aria-valuenow', Math.round(p)); };
+let dragging = false;
+const fromEvt = e => { const r = cmp.getBoundingClientRect(); setX((e.clientX - r.left) / r.width * 100); };
+cmp.addEventListener('pointerdown', e => { dragging = true; cmp.setPointerCapture(e.pointerId); fromEvt(e); });
+cmp.addEventListener('pointermove', e => { if (dragging || e.pointerType === 'mouse') fromEvt(e); });
+cmp.addEventListener('pointerup', () => dragging = false);
+cmp.addEventListener('keydown', e => {
+  const cur = parseFloat(cmp.style.getPropertyValue('--x')) || 50;
+  if (e.key === 'ArrowLeft') setX(cur - 5); if (e.key === 'ArrowRight') setX(cur + 5);
+});
+// intro sweep
+new IntersectionObserver(([e], o) => {
+  if (!e.isIntersecting || reduce) return; o.disconnect();
+  const t0 = performance.now();
+  const sweep = t => { const p = (t - t0) / 1800; if (p > 1 || dragging) return; setX(50 + Math.sin(p * Math.PI * 2) * 30); requestAnimationFrame(sweep); };
+  requestAnimationFrame(sweep);
+}, { threshold: .5 }).observe(cmp);
+const cmpCopy = [
+  `<p>True 3D Enhancer автоматично добавя фини сенки и дълбочина към обектите, за да засили усещането за триизмерност – без да преработвате съдържанието си.</p><ul><li>Работи с вашите съществуващи 2D визии и видеа</li><li>Обектът „увисва“ във въздуха с реалистична сянка</li><li>По-силен ефект = по-дълго задържане на погледа</li></ul>`,
+  `<p>Anti-glare панелът с оптимизирано матово покритие намалява отраженията от осветлението и слънцето – съдържанието остава четимо дори до витрина.</p><ul><li>Ясна картина в ярко осветени търговски зали</li><li>Подходящ за витрини с дневна светлина</li><li>Чисти цветове без „огледален“ ефект</li></ul>`
+];
+initSeg($('#cmpSeg'), b => {
+  $$('#compare .layer').forEach(l => l.style.backgroundImage = `url(${b.dataset.img})`);
+  $('#cmpL').textContent = b.dataset.l; $('#cmpR').textContent = b.dataset.r; setX(50);
+  const c = $('#cmpCopy'); c.classList.add('out');
+  setTimeout(() => { c.innerHTML = cmpCopy[b.dataset.i]; c.classList.remove('out'); }, 300);
+});
+
+/* ---------- features tabs (auto-advance) ---------- */
+const feat = $('#feat'), tabs = $$('.tab', feat), vimgs = $$('#viewer img');
+const hud = ['Съдържанието оживява в пространство зад стъклото', 'Детайлна 4K картина от всяко разстояние', 'Монтаж като стандартен дисплей – само 52 мм', 'Ясна картина при всяко осветление', 'Всички екрани, всички обекти – от един екран', 'Дисплеят става част от смарт обекта'];
+let fi = 0, ftimer, fvisible = false;
+const DUR = 7000;
+feat.style.setProperty('--dur', DUR + 'ms');
+const showFeat = (i, user) => {
+  fi = i;
+  tabs.forEach((t, j) => { t.classList.toggle('on', j === i); t.setAttribute('aria-selected', j === i); });
+  vimgs.forEach((im, j) => im.classList.toggle('on', j === i));
+  $('#hudK').textContent = `0${i + 1} / 06`; $('#hudT').textContent = hud[i];
+  // restart bar animation
+  const bar = $('.bar', tabs[i]); bar.style.animation = 'none'; bar.offsetWidth; bar.style.animation = '';
+  if (user && innerWidth <= 900) tabs[i].scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+  clearTimeout(ftimer);
+  if (!reduce && fvisible) ftimer = setTimeout(() => showFeat((fi + 1) % tabs.length), DUR);
+};
+tabs.forEach((t, i) => t.addEventListener('click', () => showFeat(i, true)));
+feat.addEventListener('pointerenter', () => { if (fine) { feat.classList.add('paused'); clearTimeout(ftimer); } });
+feat.addEventListener('pointerleave', () => { if (fine) { feat.classList.remove('paused'); showFeat(fi); } });
+new IntersectionObserver(([e]) => { fvisible = e.isIntersecting; if (fvisible) showFeat(fi); else clearTimeout(ftimer); }, { threshold: .3 }).observe(feat);
+
+/* ---------- use cases ---------- */
+const check = '<svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>';
+const cases = [
+  { k: 'РИТЕЙЛ И МОДА', n: 'Мода', img: 'assets/f-retail-window.jpg', pos: 'center', h: 'Витрина, която работи и след затваряне', p: 'Нова колекция „стъпва“ във витрината в реален ръст. Минувачите спират, защото виждат нещо, което плоските екрани не могат да покажат.', l: ['Модели в реален размер в портретен формат', 'Смяна на колекции за секунди през VXT', 'Работа 24/7 – витрината продава и нощем'] },
+  { k: 'HORECA', n: 'HoReCa', img: 'assets/f-enhancer.jpg', pos: '100% 50%', h: 'Менюто, което се яде с очи', p: 'Продуктът „увисва“ пред гостите със сянка и обем. Идеално за промо позиции, сезонни предложения и upsell на касата.', l: ['Динамично меню по часове от деня', 'True 3D Enhancer за апетитна визия', 'Anti-glare за ярки зали и тераси'] },
+  { k: 'СПОРТ И ШОУРУМИ', n: 'Шоуруми', img: 'assets/f-ultrathin.jpg', pos: '30% 50%', h: 'Продукти, които летят от стената', p: 'Обувки, екипировка или техника се въртят в пространството на екрана. Ултратънкият корпус се вписва в колони и стени без строителни промени.', l: ['52 мм – монтаж в колони и ниши', 'Продуктов лансмент с WOW ефект', 'Синхронизирани кампании в цялата верига'] },
+  { k: 'МУЗЕИ И ГАЛЕРИИ', n: 'Музеи', img: 'assets/f-smartthings.jpg', pos: '75% 50%', h: 'Експонатите оживяват', p: 'Дигитални копия на артефакти с реален обем – без витрини и без риск за оригинала. SmartThings Pro свързва екрана с осветлението и климата.', l: ['Дигитални експонати в 3D', 'Интеграция със смарт сградата', 'Тиха работа и ниска консумация в standby (0.5 W)'] },
+  { k: 'ВЕРИГИ И ТЪРГОВСКИ ЦЕНТРОВЕ', n: 'Вериги', img: 'assets/f-vxt.jpg', pos: '50% 100%', h: 'Една кампания. Всички обекти. Един клик.', p: 'Samsung VXT управлява съдържанието, графиците и състоянието на всеки екран – в мол, бутик или лоби, независимо от града.', l: ['Централизиран CMS в облака', 'Отдалечена диагностика и настройки', 'Мащабиране от 1 до стотици екрана'] }
+];
+const caseTabs = $('#caseTabs'), caseImg = $('#caseImg'), caseTxt = $('#caseTxt');
+let ci = -1;
+const showCase = i => {
+  if (i === ci) return; const first = ci < 0; ci = i;
+  $$('.tag', caseTabs).forEach((b, j) => b.classList.toggle('on', j === i));
+  const c = cases[i];
+  const apply = () => {
+    caseImg.src = c.img; caseImg.style.objectPosition = c.pos; caseImg.alt = c.h;
+    caseTxt.innerHTML = `<div class="k">${c.k}</div><h3>${c.h}</h3><p>${c.p}</p><ul>${c.l.map(x => `<li>${check}<span>${x}</span></li>`).join('')}</ul>`;
+    caseImg.classList.remove('swap'); caseTxt.classList.remove('out');
+  };
+  if (first) return apply();
+  caseImg.classList.add('swap'); caseTxt.classList.add('out');
+  setTimeout(apply, 320);
+};
+cases.forEach((c, i) => { const b = document.createElement('button'); b.className = 'tag'; b.textContent = c.n; b.onclick = () => showCase(i); caseTabs.append(b); });
+showCase(0);
+
+/* ---------- 360 orbit ---------- */
+const orbit = $('#orbit'), oimgs = $$('img', orbit), rot = $('#rot');
+const degs = [0, 35, 90, 145, 180];
+let oi = 0;
+const showO = i => {
+  oi = (i + oimgs.length) % oimgs.length;
+  oimgs.forEach((im, j) => im.classList.toggle('on', j === oi));
+  rot.value = oi; setRangeFill(rot);
+  $('#deg').textContent = $('#rotOut').textContent = degs[oi] + '°';
+};
+let ox0 = null, oStart = 0;
+orbit.addEventListener('pointerdown', e => { ox0 = e.clientX; oStart = oi; orbit.setPointerCapture(e.pointerId); });
+orbit.addEventListener('pointermove', e => {
+  if (ox0 === null) return;
+  const step = orbit.clientWidth / 8, d = Math.round((ox0 - e.clientX) / step);
+  showO(Math.max(0, Math.min(oimgs.length - 1, oStart + d)));
+});
+orbit.addEventListener('pointerup', () => ox0 = null);
+orbit.addEventListener('keydown', e => { if (e.key === 'ArrowRight') showO(Math.min(oi + 1, 4)); if (e.key === 'ArrowLeft') showO(Math.max(oi - 1, 0)); });
+rot.addEventListener('input', () => showO(+rot.value));
+// preload so drag is smooth
+new IntersectionObserver(([e], o) => { if (e.isIntersecting) { oimgs.forEach(im => im.loading = 'eager'); o.disconnect(); } }, { rootMargin: '400px' }).observe(orbit);
+
+/* lightbox */
+const lb = $('#lb');
+$$('#thumbs button').forEach(b => b.addEventListener('click', () => { $('img', lb).src = b.dataset.src; lb.showModal(); }));
+$('button', lb).onclick = () => lb.close();
+lb.addEventListener('click', e => { if (e.target === lb) lb.close(); });
+
+/* ---------- size viz ---------- */
+const tvR = $('#tvR'), tvS = $('#tvS'), tvT = $('#tvT');
+initSeg($('#oriSeg'), b => {
+  const p = b.dataset.o === 'p';
+  // 1px = 8mm, floor at y=270
+  const w = p ? 138 : 240, h = p ? 240 : 138, x = p ? 150 : 140, y = p ? 30 : 60;
+  tvR.setAttribute('x', x); tvR.setAttribute('y', y); tvR.setAttribute('width', w); tvR.setAttribute('height', h);
+  tvS.setAttribute('x', x + 4); tvS.setAttribute('y', y + 4); tvS.setAttribute('width', w - 8); tvS.setAttribute('height', h - 8);
+  tvT.setAttribute('x', x + w / 2); tvT.setAttribute('y', y + h / 2 + 5);
+  $('#dlH').setAttribute('d', `M${x + w + 22} ${y}V${y + h}`);
+  $('#dlW').setAttribute('d', `M${x} ${y - 12}H${x + w}`);
+  $('#tH').setAttribute('x', x + w + 30); $('#tH').setAttribute('y', y + h / 2 + 4);
+  $('#tW').setAttribute('x', x + w / 2); $('#tW').setAttribute('y', y - 18);
+  $('#tH').textContent = $('#dimH').textContent = (p ? 1920 : 1101) + ' мм';
+  $('#tW').textContent = $('#dimW').textContent = (p ? 1101 : 1920) + ' мм';
+  $$('.size-viz path.dl')[1].setAttribute('d', `M${x + w + 16} ${y}h12M${x + w + 16} ${y + h}h12`);
+  $$('.size-viz path.dl').forEach(pth => pth.style.setProperty('--len', 260));
+});
+
+/* ---------- specs ---------- */
+const specs = {
+  'Дисплей': [['Диагонал', '85″'], ['Тип панел', 'VA'], ['Резолюция', '3840 × 2160 (4K UHD)'], ['Pixel pitch', '0.487 × 0.487 мм'], ['Яркост (типична)', '500 nit'], ['Контраст', '4 000:1'], ['Динамичен контраст', 'Mega'], ['Ъгъл на видимост (Х/В)', '178° / 178°'], ['Време за реакция', '10 ms (GTG)'], ['Цветова гама (NTSC)', '72%'], ['Haze (anti-glare)', '25%'], ['Вертикална честота', '48 – 75 Hz'], ['Режим на работа', '24/7']],
+  'Свързаност': [['HDMI', '3 × (HDMI 2.0)'], ['DisplayPort', '1 × (DP 1.2)'], ['HDCP', '2.2'], ['USB', '2'], ['RJ45 (LAN)', 'Да'], ['RS232C вход / изход', 'Да / Да'], ['IR вход', 'Да'], ['Аудио изход', 'Stereo mini jack'], ['Wi-Fi', 'Да'], ['Bluetooth', 'Да']],
+  'Софтуер': [['Операционна система', 'Tizen 7.0'], ['Вградена памет', '16 GB'], ['Процесор', 'Quantum Processor 4K'], ['CMS', 'Samsung VXT*'], ['IoT', 'SmartThings Pro*']],
+  'Захранване': [['Захранване', 'AC 100–240 V, 50/60 Hz'], ['Консумация (вкл.)', '440 W'], ['Консумация (standby)', '0.5 W'], ['Енергиен клас', 'G']],
+  'Механика': [['Размери (Ш × В × Д)', '1101.2 × 1920.2 × 52.0 мм'], ['Тегло', '49.0 кг'], ['Тегло с опаковка', '61.9 кг'], ['Опаковка (Ш × В × Д)', '2093 × 1234 × 220 мм'], ['VESA монтаж', '400 × 600 мм'], ['Цвят на рамката', 'Черен, матов'], ['Работна температура', '0 – 40 °C'], ['Влажност', '10 – 80% (без конденз)']]
+};
+const table = $('#specTable'), empty = $('#specEmpty'), q = $('#specQ'), cats = $('#specCats');
+const esc = s => s.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+const rows = [];
+Object.entries(specs).forEach(([cat, list]) => list.forEach(([k, v]) => {
+  const r = document.createElement('div'); r.className = 'row'; r.dataset.cat = cat;
+  r.innerHTML = `<span class="k">${k}</span><span class="v">${v}</span>`;
+  table.insertBefore(r, empty); rows.push({ r, k, v, cat });
+}));
+let cat = 'Всички';
+['Всички', ...Object.keys(specs)].forEach(c => {
+  const b = document.createElement('button'); b.textContent = c; if (c === cat) b.className = 'on';
+  b.onclick = () => { cat = c; $$('button', cats).forEach(x => x.classList.toggle('on', x === b)); filter(); };
+  cats.append(b);
+});
+const filter = () => {
+  const term = q.value.trim().toLowerCase(); let n = 0;
+  rows.forEach(({ r, k, v, cat: c }) => {
+    const hit = (cat === 'Всички' || c === cat) && (!term || (k + ' ' + v).toLowerCase().includes(term));
+    r.classList.toggle('hide', !hit); if (hit) n++;
+    const mark = s => { if (!term) return esc(s); const i = s.toLowerCase().indexOf(term); return i < 0 ? esc(s) : esc(s.slice(0, i)) + '<mark>' + esc(s.slice(i, i + term.length)) + '</mark>' + esc(s.slice(i + term.length)); };
+    $('.k', r).innerHTML = mark(k); $('.v', r).innerHTML = mark(v);
+  });
+  empty.style.display = n ? 'none' : 'block';
+};
+q.addEventListener('input', filter);
+
+/* ---------- lead form (demo – no data is sent) ---------- */
+const form = $('#leadForm'), qty = $('#qty');
+$$('[data-q]', form).forEach(b => b.onclick = () => qty.textContent = Math.max(1, Math.min(99, +qty.textContent + +b.dataset.q)));
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  let bad = null;
+  $$('[required]', form).forEach(f => {
+    const ok = f.type === 'checkbox' ? f.checked : f.checkValidity() && f.value.trim();
+    (f.closest('.f') || f).style.outline = ok ? '' : '2px solid var(--red)';
+    if (f.type !== 'checkbox') f.style.borderColor = ok ? '' : 'var(--red)';
+    if (!ok && !bad) bad = f;
+  });
+  if (bad) { bad.focus(); return; }
+  const n = $('#fn').value.trim().split(' ')[0];
+  $('#okMsg').textContent = `${n}, заявката за ${qty.textContent} бр. Spatial Signage за „${$('#fc').value.trim()}“ е приета. Наш консултант ще се свърже с вас. (Демо версия – данните не се изпращат.)`;
+  $('#ok').classList.add('show');
+});
+$$('input, textarea', form).forEach(f => f.addEventListener('input', () => { f.style.borderColor = ''; (f.closest('.f') || f).style.outline = ''; }));
+})();
+</script>
+</body>
+</html>
