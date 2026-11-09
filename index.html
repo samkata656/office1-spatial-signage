@@ -42,6 +42,8 @@ button,input,select,textarea{font:inherit;color:inherit}
 
 /* header: white top row + blue nav bar, like office1.bg */
 header{position:fixed;inset:0 0 auto 0;z-index:100;background:#fff;transition:box-shadow .3s}
+.concept-bar{display:flex;align-items:center;justify-content:center;gap:12px;min-height:36px;padding:6px 16px;background:var(--ink);color:#e6e6e6;font-size:13px;line-height:1.35;text-align:center}
+.concept-bar b{flex-shrink:0;background:var(--yellow);color:var(--navy);font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:3px}
 header.scrolled{box-shadow:0 4px 18px rgba(0,0,0,.08)}
 .topbar .nav{display:flex;align-items:center;gap:24px;height:72px}
 .logo{display:flex;align-items:center;gap:14px;flex-shrink:0}
@@ -72,7 +74,7 @@ header.scrolled{box-shadow:0 4px 18px rgba(0,0,0,.08)}
 .btn-sm{padding:10px 18px;font-size:14px}
 
 /* hero */
-#hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:150px 0 70px;overflow:hidden;
+#hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:186px 0 70px;overflow:hidden;
   background:linear-gradient(180deg,#fff 0%,#f6f9fc 60%,var(--paper) 100%)}
 #hero canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0}
 .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
@@ -124,8 +126,8 @@ h1 .grad{background:linear-gradient(transparent 70%,var(--yellow) 70%,var(--yell
 @keyframes marq{to{transform:translateX(-50%)}}
 
 /* sections */
-section{position:relative;z-index:1;scroll-margin-top:118px}
-@media (max-width:900px){section{scroll-margin-top:64px}}
+section{position:relative;z-index:1;scroll-margin-top:154px}
+@media (max-width:900px){section{scroll-margin-top:110px}}
 .sec{padding:110px 0}
 .alt{background:var(--paper)}
 .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);display:flex;align-items:center;gap:12px;margin-bottom:16px;font-weight:600}
@@ -227,7 +229,7 @@ input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;bac
 
 /* features */
 .feat{display:grid;grid-template-columns:380px 1fr;gap:40px;align-items:start}
-.tabs{display:flex;flex-direction:column;gap:6px;position:sticky;top:140px}
+.tabs{display:flex;flex-direction:column;gap:6px;position:sticky;top:176px}
 .tab{position:relative;text-align:left;border:1px solid transparent;background:none;border-radius:var(--radius);padding:18px 20px;cursor:pointer;transition:background .3s,border-color .3s,box-shadow .3s;overflow:hidden}
 .tab .t{display:flex;align-items:center;gap:14px;font-weight:700;font-size:17px;color:var(--muted);transition:color .3s}
 .tab .t em{font-style:normal;font-family:var(--mono);font-size:12px;color:#b8c0c8;transition:color .3s}
@@ -406,7 +408,7 @@ footer{background:var(--navy);padding:56px 0 36px;font-size:14px;color:#c4d3e2}
 }
 @media (max-width:900px){
   .sec{padding:80px 0}
-  #hero{padding-top:110px}
+  #hero{padding-top:160px}
   .hero-grid,.lab,.compare-grid,.orbit,.offer,.case,.size-top{grid-template-columns:1fr}
   .stage{height:56vh;order:-1;margin-top:10px}
   .chip{font-size:10px;padding:8px 10px}.chip b{font-size:17px}
@@ -446,6 +448,7 @@ footer{background:var(--navy);padding:56px 0 36px;font-size:14px;color:#c4d3e2}
   .fields{grid-template-columns:1fr}
   form{padding:24px 18px}
   .logo small{display:none}
+  .concept-bar{font-size:12px;gap:8px;text-align:left}
   .compare-box{margin-top:64px}
   .chip.c2,.chip.c4{right:-2%}
   .chip.c1,.chip.c3{left:-2%}
@@ -462,6 +465,7 @@ footer{background:var(--navy);padding:56px 0 36px;font-size:14px;color:#c4d3e2}
 <div id="glow" aria-hidden="true"></div>
 
 <header id="top">
+  <div class="concept-bar" role="note"><b>Неофициален концепт</b><span>Дизайн-предложение – не е официална страница на Office 1 или Samsung. Телефонът и формата са примерни.</span></div>
   <div class="topbar">
     <div class="wrap nav">
       <a class="logo" href="#hero" aria-label="Office 1 – начало">
@@ -469,7 +473,7 @@ footer{background:var(--navy);padding:56px 0 36px;font-size:14px;color:#c4d3e2}
         <small>Business<br>Solutions</small>
       </a>
       <div class="nav-cta">
-        <a class="phone" href="tel:+35929760006" aria-label="Обадете се: 02 976 00 06"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span>02 976 00 06</span></a>
+        <a class="phone" href="#offer" aria-label="Телефон (примерен номер): 02 XXX XX XX"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span>02 XXX XX XX</span></a>
         <a class="btn btn-y btn-sm" href="#offer">Поискай оферта</a>
         <button class="burger" aria-label="Меню" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
       </div>
@@ -824,7 +828,7 @@ footer{background:var(--navy);padding:56px 0 36px;font-size:14px;color:#c4d3e2}
       <h2>Готови да спрете <span class="grad">трафика пред витрината?</span></h2>
       <p class="sub">Разкажете ни за обекта си – ще се свържем с вас с предложение, демонстрация и условия за бизнес клиенти.</p>
       <div class="contact">
-        <a href="tel:+35929760006"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span><small>ОБАДЕТЕ СЕ</small><b>02 976 00 06</b></span></a>
+        <a href="#offer"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span><small>ОБАДЕТЕ СЕ</small><b>02 XXX XX XX</b></span></a>
         <a href="https://office1.bg/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg><span><small>ОНЛАЙН</small><b>office1.bg</b></span></a>
       </div>
     </div>
@@ -847,7 +851,7 @@ footer{background:var(--navy);padding:56px 0 36px;font-size:14px;color:#c4d3e2}
         <svg class="check" viewBox="0 0 84 84"><circle cx="42" cy="42" r="38"/><path d="M26 43l11 11 21-23"/></svg>
         <h3>Благодарим!</h3>
         <p id="okMsg">Заявката е приета. Наш консултант ще се свърже с вас.</p>
-        <a class="btn btn-ghost btn-sm" href="tel:+35929760006">Или звъннете: 02 976 00 06</a>
+        <span class="btn btn-ghost btn-sm">Телефон: 02 XXX XX XX</span>
       </div>
     </form>
   </div>
@@ -862,7 +866,7 @@ footer{background:var(--navy);padding:56px 0 36px;font-size:14px;color:#c4d3e2}
         <p style="margin-top:16px;max-width:360px">Всичко за офиса и бизнеса – от консумативи до професионални дисплейни решения. Официален дистрибутор на Samsung за България.</p>
       </div>
       <div><h5>Страница</h5><ul><li><a href="#lab">3D демонстрация</a></li><li><a href="#features">Технология</a></li><li><a href="#cases">Приложения</a></li><li><a href="#specs">Спецификации</a></li></ul></div>
-      <div><h5>Контакт</h5><ul><li><a href="tel:+35929760006">02 976 00 06</a></li><li><a href="https://office1.bg/" target="_blank" rel="noopener">office1.bg</a></li><li><a href="#offer">Заявка за оферта</a></li></ul></div>
+      <div><h5>Контакт</h5><ul><li>02 XXX XX XX <small>(примерен)</small></li><li><a href="https://office1.bg/" target="_blank" rel="noopener">office1.bg</a></li><li><a href="#offer">Заявка за оферта</a></li></ul></div>
     </div>
     <p class="legal">Концептуален дизайн на маркетингова страница, изготвен като предложение – не е официална страница на Office 1 или Samsung. Формата е демонстрационна и не изпраща данни. Продуктови изображения и спецификации © Samsung Electronics (samsung.com/bg). Samsung, VXT, SmartThings и Tizen са търговски марки на Samsung Electronics Co., Ltd. Office 1 и логото са собственост на съответния притежател.</p>
   </div>
